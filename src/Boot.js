@@ -1,6 +1,6 @@
 var Ball = {
-	_WIDTH: 320,
-	_HEIGHT: 480
+	_WIDTH: 800,
+	_HEIGHT: 600
 };
 Ball.Boot = function(game) {};
 Ball.Boot.prototype = {

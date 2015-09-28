@@ -1,5 +1,5 @@
-Ball.Game = function(game) {};
-Ball.Game.prototype = {
+Ball.Desarrollo = function(game) {};
+Ball.Desarrollo.prototype = {
 	create: function() {
 		this.add.sprite(0, 0, 'screen-bg');
 		this.add.sprite(0, 0, 'panel');

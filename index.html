@@ -4,23 +4,31 @@
 	<meta charset="utf-8" />
 	<title>Cyber Orb demo</title>
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+	<!--
 	<style> body { margin: 0; background: #2B2E31 url(img/screen-bg.png) repeat; } </style>
+	-->
+	<style> body { margin: 0; background: #2B2E31; } </style>
 	<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>
 	<script src="src/Boot.js"></script>
 	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
 	<script src="src/Howto.js"></script>
-	<script src="src/Game.js"></script>
+	<script src="src/Carrera.js"></script>
+	<script src="src/Desarrollo.js"></script>
+    <script src="src/Mapa.js"></script>
+
 </head>
 <body>
 <script>
 (function() {
-	var game = new Phaser.Game(320, 480, Phaser.CANVAS, 'game');
+	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game');
 	game.state.add('Boot', Ball.Boot);
 	game.state.add('Preloader', Ball.Preloader);
 	game.state.add('MainMenu', Ball.MainMenu);
 	game.state.add('Howto', Ball.Howto);
-	game.state.add('Game', Ball.Game);
+	game.state.add('Carrera', Ball.Carrera);
+	game.state.add('Desarrollo', Ball.Desarrollo);
+    game.state.add('Mapa', Ball.Mapa);
 	game.state.start('Boot');
 })();
 </script>
