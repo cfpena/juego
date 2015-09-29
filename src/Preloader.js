@@ -18,10 +18,14 @@ Ball.Preloader.prototype = {
 		this.load.image('border-horizontal', 'img/border-horizontal.png');
 		this.load.image('border-vertical', 'img/border-vertical.png');
 		this.load.image('fondo2', 'img/fondo2.jpg');
+		this.load.image('fondo_carrera', 'img/fondo_carrera.jpg');
+
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
 
+		this.load.spritesheet('nave', 'img/nave.png', 32, 32);
+    this.load.spritesheet('Asteroides', 'img/Asteroides.png',64, 64);
 		this.load.spritesheet('button-audio', 'img/button-audio.png', 35, 35);
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
 
