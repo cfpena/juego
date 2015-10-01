@@ -24,10 +24,17 @@ Ball.Preloader.prototype = {
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
 
-		this.load.spritesheet('nave', 'img/nave.png', 32, 32);
+		this.load.spritesheet('nave-1', 'img/nave-1.png', 32, 32);
+		this.load.spritesheet('nave-2', 'img/nave-2.png', 32, 32);
+		this.load.spritesheet('nave-3', 'img/nave-3.png', 32, 32);
+		this.load.spritesheet('nave-4', 'img/nave-4.png', 32, 32);
     this.load.spritesheet('Asteroides', 'img/Asteroides.png',64, 64);
 		this.load.spritesheet('button-audio', 'img/button-audio.png', 35, 35);
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
+		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
+
+		
+		
 
 		this.load.audio('audio-bounce', ['audio/bounce.ogg', 'audio/bounce.mp3', 'audio/bounce.m4a']);
 	},
