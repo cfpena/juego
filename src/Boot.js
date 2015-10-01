@@ -2,6 +2,7 @@ var Ball = {
 	_WIDTH: 800,
 	_HEIGHT: 600
 };
+
 Ball.Boot = function(game) {};
 Ball.Boot.prototype = {
 	preload: function() {
