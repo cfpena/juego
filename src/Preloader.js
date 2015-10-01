@@ -18,23 +18,23 @@ Ball.Preloader.prototype = {
 		this.load.image('border-horizontal', 'img/border-horizontal.png');
 		this.load.image('border-vertical', 'img/border-vertical.png');
 		this.load.image('fondo2', 'img/fondo2.jpg');
-		this.load.image('fondo_carrera', 'img/fondo_carrera.jpg');
+		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
 
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
 
-		this.load.spritesheet('nave-1', 'img/nave-1.png', 32, 32);
-		this.load.spritesheet('nave-2', 'img/nave-2.png', 32, 32);
-		this.load.spritesheet('nave-3', 'img/nave-3.png', 32, 32);
-		this.load.spritesheet('nave-4', 'img/nave-4.png', 32, 32);
+		this.load.image('nave-1', 'resources/images/nave-01.png');
+		this.load.image('nave-2', 'resources/images/nave-02.png');
+		this.load.image('nave-3', 'resources/images/nave-03.png');
+		this.load.image('nave-4', 'resources/images/nave-04.png');
     this.load.spritesheet('Asteroides', 'img/Asteroides.png',64, 64);
 		this.load.spritesheet('button-audio', 'img/button-audio.png', 35, 35);
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
 		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
 
-		
-		
+
+
 
 		this.load.audio('audio-bounce', ['audio/bounce.ogg', 'audio/bounce.mp3', 'audio/bounce.m4a']);
 	},

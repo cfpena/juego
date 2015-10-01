@@ -38,12 +38,10 @@ Ball.Carrera.prototype = {
 					ast.body.collides([AsteroideCol, shipCol]);
 	    }
 
-	    ship = this.add.sprite(200, 200, 'nave');
+	    ship = this.add.sprite(200, 200, 'nave-1');
 	    ship.name = 'nave';
 	    ship.scale.set(2);
 	    ship.smoothed = false;
-	    ship.animations.add('fly', [0,1,2,3,4,5], 10, true);
-	    ship.play('fly');
 
 		  this.vidaText=this.add.text(64, 30, 'Vidas: '+ vida, { font: '16px Arial', fill: '#ffffff' })
 	    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
@@ -61,7 +59,7 @@ Ball.Carrera.prototype = {
 
 			this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
 
-			
+
 			/*popup = this.add.sprite(this.world.centerX, this.world.centerY, 'background');
 	    popup.alpha = 0.8;
 	    popup.anchor.set(0.5);
