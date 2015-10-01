@@ -1,15 +1,14 @@
 Ball.Mapa = function(game) {};
 var counter = 0 ;
 		var step = Math.PI * 2 / 360 ;
-	    
+
 Ball.Mapa.prototype = {
-	
+
 	create: function() {
-		
+
 		//var counter = 0 ;
 		//var step = Math.PI * 2 / 360 ;
 	    this.game.add.tileSprite(0, 0, 800, 600, 'fondo2');
-	    
 
 	    button2 = this.game.add.button(500, 100, 'planeta', this.irCarrera, this, 2, 1, 0);
 	    button2.name = 'planeta';
@@ -40,19 +39,19 @@ Ball.Mapa.prototype = {
 		this.game.state.start('Desarrollo');
 	},
 	initLevels: function() {
-	
+
     },
 	showLevel: function(level) {
-	
+
     },
 	updateCounter: function() {
-	
+
     },
 	managePause: function() {
-	
+
     },
 	manageAudio: function() {
-	
+
     },
 	update: function() {
 		// Move sprite up and down smoothly for show
@@ -70,13 +69,13 @@ Ball.Mapa.prototype = {
 	    counter += step ;
     },
 	wallCollision: function() {
-	
+
     },
 	handleOrientation: function(e) {
-	
+
     },
 	finishLevel: function() {
-	
+
     },
 	render: function() {
 		// this.game.debug.body(this.ball);
