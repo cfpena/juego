@@ -19,8 +19,9 @@ Ball.Preloader.prototype = {
 		this.load.image('screen-howtoplay', 'img/screen-howtoplay.png');
 		this.load.image('border-horizontal', 'img/border-horizontal.png');
 		this.load.image('border-vertical', 'img/border-vertical.png');
-		this.load.image('fondo2', 'img/fondo2.jpg');
+		//this.load.image('fondo2', 'img/fondo2.jpg');
 		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
+		this.load.image('back','resources/background.png');
 
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
@@ -36,6 +37,17 @@ Ball.Preloader.prototype = {
 		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
 		this.load.spritesheet('block', 'img/block.png', 95, 95);
 
+		//ilustraciones definitivas
+		this.load.image('planeta-cfn','resources/images/planeta_08.png');
+		this.load.image('planeta-carrera','resources/images/planeta_01.png');
+		this.load.image('planeta-industria','resources/images/planeta_02.png');
+		this.load.image('planeta-3','resources/images/planeta_03.png');
+		this.load.image('planeta-4','resources/images/planeta_04.png');
+		this.load.image('planeta-5','resources/images/planeta_05.png');
+		this.load.image('planeta-6','resources/images/planeta_06.png');
+		this.load.image('planeta-7','resources/images/planeta_07.png');
+		this.load.image('glow-1','resources/images/LightRotate1.png');
+		
 
 
 
