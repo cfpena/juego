@@ -19,13 +19,8 @@ Ball.Preloader.prototype = {
 		this.load.image('screen-howtoplay', 'img/screen-howtoplay.png');
 		this.load.image('border-horizontal', 'img/border-horizontal.png');
 		this.load.image('border-vertical', 'img/border-vertical.png');
-		this.load.image('fondo2', 'img/fondo2.jpg');
-		this.load.image('fondo_carrera', 'resources/ESCENARIO 2.png');
-		this.load.spritesheet('planeta3', 'resources/planeta_03.png',366,493);
-		this.load.spritesheet('planeta2', 'resources/planeta_04.png',366,493);
-		this.load.spritesheet('planeta4', 'resources/planeta_06.png');
-		
-
+		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
+		this.load.image('back','resources/images/background.png');
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
@@ -36,10 +31,21 @@ Ball.Preloader.prototype = {
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
 		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
 		this.load.image('block', 'img/block.png', 95, 95);
-		this.load.image('robot1', 'resources/robot1.png', 166, 253);
-		this.load.image('robot2', 'resources/robot2.png', 167, 254);
-		this.load.image('robot3', 'resources/robot3.png', 166, 248);
+		this.load.image('robot1', 'resources/images/robot1.png', 166, 253);
+		this.load.image('robot2', 'resources/images/robot2.png', 167, 254);
+		this.load.image('robot3', 'resources/images/robot3.png', 166, 248);
 
+		//ilustraciones definitivas
+		this.load.image('planeta-cfn','resources/images/planeta_08.png');
+		this.load.image('planeta-carrera','resources/images/planeta_01.png');
+		this.load.image('planeta-industria','resources/images/planeta_02.png');
+		this.load.image('planeta-3','resources/images/planeta_03.png');
+		this.load.image('planeta-4','resources/images/planeta_04.png');
+		this.load.image('planeta-5','resources/images/planeta_05.png');
+		this.load.image('planeta-6','resources/images/planeta_06.png');
+		this.load.image('planeta-7','resources/images/planeta_07.png');
+		this.load.image('glow-1','resources/images/LightRotate1.png');
+		
 
 
 
