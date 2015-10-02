@@ -28,15 +28,23 @@
 </head>
 <body>
 
+
+
+<script>
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1479597819011558',
+      appId      : '1059689310722149',
       xfbml      : true,
       version    : 'v2.4'
     });
 
-    function onLogin(response) {
+    // ADD ADDITIONAL FACEBOOK CODE HERE
+
+	// Place following code after FB.init call.
+
+function onLogin(response) {
   if (response.status == 'connected') {
     FB.api('/me?fields=first_name', function(data) {
       var welcomeBlock = document.getElementById('fb-welcome');
@@ -67,12 +75,17 @@ FB.getLoginStatus(function(response) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
-
 <h1 id="fb-welcome"></h1>
 
 
-<script>
+
+
+
+
+
+
+
+
 (function() {
 	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game');
 	game.state.add('Boot', Ball.Boot);
