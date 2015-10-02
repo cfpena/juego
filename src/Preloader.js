@@ -47,8 +47,6 @@ Ball.Preloader.prototype = {
 		this.load.image('glow-1','resources/images/LightRotate1.png');
 		
 
-
-
 		this.load.audio('audio-bounce', ['audio/bounce.ogg', 'audio/bounce.mp3', 'audio/bounce.m4a']);
 	},
 	create: function() {

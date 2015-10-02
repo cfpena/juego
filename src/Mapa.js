@@ -14,12 +14,12 @@ Ball.Mapa.prototype = {
 	     buttonCFN.name = 'planetaCFN';
 	     buttonCFN.scale.setTo(0.25, 0.25);
 
-	     buttonCarrera = this.game.add.button(50,210,'planeta-carrera',undefined,this,2,1,0);
+	     buttonCarrera = this.game.add.button(50,210,'planeta-carrera',this.irCarrera,this,2,1,0);
 	     buttonCarrera.name = 'planetaCarrera';
 	     buttonCarrera.scale.setTo(0.2, 0.2);
 	     
 
-	     buttonIndustria = this.game.add.button(650,210,'planeta-industria',undefined,this,2,1,0);
+	     buttonIndustria = this.game.add.button(650,210,'planeta-industria',this.irDesarrollo,this,2,1,0);
 	     buttonIndustria.name = 'planetaCarrera';
 	     buttonIndustria.scale.setTo(0.25, 0.25);
 
@@ -54,42 +54,14 @@ Ball.Mapa.prototype = {
 	     industria = this.add.group();
 	     industria.add(glow2);
 	     industria.add(buttonIndustria);
-
-	     
-	     
-
-
-
-
-	 //    button2 = this.game.add.button(500, 100, 'planeta', this.irCarrera, this, 2, 1, 0);
-	 //    button2.name = 'planeta';
-	 //    button2.scale.setTo(0.5, 0.5);
-	 //    button2.alpha = 0.5 ;
-	 //    button2.x = 100 ;
-	 //    button2.y = 500 ;
-	 //    button2.anchor.x = button2.anchor.y = 0.5 ;
-
-	 //    button3 = this.game.add.button(500, 100, 'planeta', this.irDesarrollo, this, 2, 1, 0);
-	 //    button3.name = 'planeta';
-	 //    button3.scale.setTo(0.5, 0.5);
-	 //    button3.alpha = 0.5 ;
-	 //    button3.x = 500 ;
-	 //    button3.y = 100 ;
-	 //    button3.anchor.x = button2.anchor.y = 0.5 ;
-
-		// planetaSp = this.game.add.sprite(0, 0, 'planetaSprite');
-	 //    planetaSp.alpha = 0.5 ;
-	 //    planetaSp.x = 100 ;
-	 //    planetaSp.y = 500 ;
-	 //    planetaSp.anchor.x = planetaSp.anchor.y = 0.5 ;
-	    
+    
 	},
-	// irCarrera: function() {
-	// 	this.game.state.start('Carrera');
-	// },
-	// irDesarrollo: function() {
-	// 	this.game.state.start('Desarrollo');
-	// },
+	irCarrera: function() {
+	 	this.game.state.start('Carrera');
+	},
+	irDesarrollo: function() {
+		this.game.state.start('Desarrollo');
+	},
 	initLevels: function() {
 
     },
