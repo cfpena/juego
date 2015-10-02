@@ -1,3 +1,5 @@
+var velocidad=60;
+var prestamoDesarrollo=false;
 Ball.Preloader = function(game) {};
 Ball.Preloader.prototype = {
 	preload: function() {
@@ -32,6 +34,7 @@ Ball.Preloader.prototype = {
 		this.load.spritesheet('button-audio', 'img/button-audio.png', 35, 35);
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
 		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
+		this.load.spritesheet('block', 'img/block.png', 95, 95);
 
 		
 		

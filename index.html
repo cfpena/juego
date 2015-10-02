@@ -17,6 +17,9 @@
 	<script src="src/Howto.js"></script>
 	<script src="src/Carrera.js"></script>
 	<script src="src/Desarrollo.js"></script>
+	<script src="src/GameOverDesarrollo.js"></script>
+	
+	
     <script src="src/Mapa.js"></script>
 
 </head>
@@ -30,7 +33,10 @@
 	game.state.add('Howto', Ball.Howto);
 	game.state.add('Carrera', Ball.Carrera);
 	game.state.add('Desarrollo', Ball.Desarrollo);
-    game.state.add('Mapa', Ball.Mapa);
+   	game.state.add('Mapa', Ball.Mapa);
+	game.state.add('GameOverDesarrollo', Ball.GameOverDesarrollo);	
+	
+	
 	game.state.start('Boot');
 })();
 </script>
