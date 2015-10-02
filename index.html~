@@ -31,10 +31,12 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1631657877101185',
-      xfbml      : false,
+      appId      : '1479597819011558',
+      xfbml      : true,
       version    : 'v2.4'
     });
+
+    // ADD ADDITIONAL FACEBOOK CODE HERE
   };
 
   (function(d, s, id){
@@ -45,7 +47,6 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
 
 
 
@@ -69,6 +70,15 @@
 })();
 
 </script>
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+
 
 </body>
 </html>
