@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Cyber Orb demo</title>
+	<title>Juego Cfn</title>
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 	<!--
 	<style> body { margin: 0; background: #2B2E31 url(img/screen-bg.png) repeat; } </style>
@@ -17,6 +17,7 @@
 	<script src="src/Howto.js"></script>
 	<script src="src/Carrera.js"></script>
 	<script src="src/Desarrollo.js"></script>
+	<script src="src/WinDesarrollo.js"></script>	
 
 	<script src="src/GameOverDesarrollo.js"></script>
 	
@@ -26,6 +27,54 @@
 
 </head>
 <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1059689310722149',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+
+    // ADD ADDITIONAL FACEBOOK CODE HERE
+  };
+
+	function onLogin(response) {
+  if (response.status == 'connected') {
+    FB.api('/me?fields=first_name', function(data) {
+      var welcomeBlock = document.getElementById('fb-welcome');
+      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+    });
+  }
+}
+
+FB.getLoginStatus(function(response) {
+  // Check login status on load, and if the user is
+  // already logged in, go directly to the welcome message.
+  if (response.status == 'connected') {
+    onLogin(response);
+  } else {
+    // Otherwise, show Login dialog first.
+    FB.login(function(response) {
+      onLogin(response);
+    }, {scope: 'user_friends, email'});
+  }
+});
+
+
+
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+<h1 id="fb-welcome"></h1>
 <script>
 (function() {
 	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game');
@@ -37,10 +86,22 @@
 	game.state.add('Desarrollo', Ball.Desarrollo);
    	game.state.add('Mapa', Ball.Mapa);
 	game.state.add('GameOverDesarrollo', Ball.GameOverDesarrollo);	
+	game.state.add('WinDesarrollo', Ball.WinDesarrollo);	
 	
 	
 	game.state.start('Boot');
 })();
+
 </script>
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+
+
 </body>
 </html>

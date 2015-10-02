@@ -23,8 +23,10 @@ Ball.Desarrollo.prototype = {
 	    rojo=0;
 	    amarillo=0;
 	    azul=0;
+	    suma=0;
 	    
 		tiempo=this.add.text(64, 10, 'Tiempo: '+ time, { font: '16px Arial', fill: '#ffffff' })
+		recoleccion=this.add.text(300, 10, 'Recoleccion: '+ suma, { font: '16px Arial', fill: '#ffffff' })
 
 
 		botonVerde = this.add.sprite(42,600-95, 'block');
@@ -58,22 +60,36 @@ Ball.Desarrollo.prototype = {
 	},
 
 	update:function() {
-		
+			suma=amarillo+azul+rojo+verde;
 			time++;
 			tiempo.setText("tiempo:  " + Math.round(time/60));
+			tiempo.bringToTop();
 			perdidos.setText("Perdidos:  " + cajasPerdidas);
+			recoleccion.setText("Recoleccion: " + suma);
+			recoleccion.bringToTop();
+			perdidos.bringToTop();
 			amarilloText.setText(amarillo);
 			azulText.setText(azul);
 			rojoText.setText(rojo);
 			verdeText.setText(verde);
+			
+			
 
+			if (suma>=40) {
+				console.log(suma);
+				this.game.state.start('WinDesarrollo');
+			}
+				
 			
 			if(time%velocidad==2){
 				
 				
 				
 				numero=Math.floor((Math.random() * 4) + 1);
-				caja=this.add.sprite(numero*100+((numero-1)*100), 0, 'nave-'+numero);
+				numeroCaja=Math.floor((Math.random() * 3) + 1);
+				
+				caja=this.add.sprite(numero*100+((numero-1)*100), 0, 'robot'+numeroCaja);
+				caja.scale.set(0.3,0.3 );
 				caja.name=String(numero);
 			    this.physics.p2.enable(caja);
 			    
@@ -84,7 +100,7 @@ Ball.Desarrollo.prototype = {
 
 			}
 			
-			if (grupo.getTop()!=null && grupo.getBottom().body.y>=580){
+			if (grupo.getTop()!=null && grupo.getBottom().body.y>=600-40){
 				
 				cajita=grupo.getBottom();
 				cajasPerdidas++;	
@@ -96,6 +112,8 @@ Ball.Desarrollo.prototype = {
 				//this.gameOver();
 				this.game.state.start('GameOverDesarrollo');
 			}
+			
+			
 			
 			
 			

@@ -1,4 +1,4 @@
-Ball.Mapa = function(game) {};
+Ball.Mapa = function(game) {};	
 var counter = 0 ;
 		var step = Math.PI * 2 / 360 ;
 
@@ -82,6 +82,7 @@ Ball.Mapa.prototype = {
 	 //    planetaSp.x = 100 ;
 	 //    planetaSp.y = 500 ;
 	 //    planetaSp.anchor.x = planetaSp.anchor.y = 0.5 ;
+	    
 	},
 	// irCarrera: function() {
 	// 	this.game.state.start('Carrera');
