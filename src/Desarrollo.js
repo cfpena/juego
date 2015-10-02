@@ -15,6 +15,7 @@ Ball.Desarrollo.prototype = {
 	    this.physics.p2.gravity.y = 300;
 	    //barra= this.add.sprite(0, 125, 'panel');
 	    grupo =this.add.group();
+	    this.world.bringToTop(grupo);
 
 	    time=0;
 	    cajasPerdidas=0;
@@ -28,8 +29,10 @@ Ball.Desarrollo.prototype = {
 
 		botonVerde = this.add.sprite(42,600-95, 'block');
 		botonRojo = this.add.sprite(200+42, 600-95, 'block');
-		botonAnarillo = this.add.sprite(400+42, 600-95, 'block');
+		botonAmarillo = this.add.sprite(400+42, 600-95, 'block');
 		botonAzul = this.add.sprite(600+42, 600-95, 'block');
+		
+		
 		
 		perdidos=this.add.text(200, 10, 'Perdidos: '+ time, { font: '16px Arial', fill: '#ffffff' })
 		verdeText=this.add.text(100, 600-95, verde, { font: '42px Arial', fill: '#000000' })
@@ -73,9 +76,11 @@ Ball.Desarrollo.prototype = {
 				caja=this.add.sprite(numero*100+((numero-1)*100), 0, 'nave-'+numero);
 				caja.name=String(numero);
 			    this.physics.p2.enable(caja);
-			    grupo.add(caja);		
-			    caja.bringToTop();
-				caja.body.moveRight(1);
+			    
+			    grupo.add(caja);
+			    this.world.bringToTop(grupo);
+			    
+				
 
 			}
 			

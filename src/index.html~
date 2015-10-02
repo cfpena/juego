@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="phaser.2.2.2.box2d.min.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="varying-friction.js"></script>
+</body>
+</html>
