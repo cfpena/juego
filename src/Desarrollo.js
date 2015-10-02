@@ -73,7 +73,8 @@ Ball.Desarrollo.prototype = {
 				caja=this.add.sprite(numero*100+((numero-1)*100), 0, 'nave-'+numero);
 				caja.name=String(numero);
 			    this.physics.p2.enable(caja);
-			    grupo.add(caja);			
+			    grupo.add(caja);		
+			    caja.bringToTop();
 				caja.body.moveRight(1);
 
 			}
