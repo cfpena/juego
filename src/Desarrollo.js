@@ -75,8 +75,7 @@ Ball.Desarrollo.prototype = {
 			
 			
 
-			if (suma>=40) {
-				console.log(suma);
+			if (suma>=60) {
 				this.game.state.start('WinDesarrollo');
 			}
 				
@@ -108,7 +107,7 @@ Ball.Desarrollo.prototype = {
 				grupo.remove(cajita);		
 				
 			}
-			if (time>500){
+			if (time>1800){
 				//this.gameOver();
 				this.game.state.start('GameOverDesarrollo');
 			}
