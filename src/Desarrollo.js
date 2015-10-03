@@ -25,8 +25,8 @@ Ball.Desarrollo.prototype = {
 	    azul=0;
 	    suma=0;
 	    
-		tiempo=this.add.text(64, 10, 'Tiempo: '+ time, { font: '16px Arial', fill: '#ffffff' })
-		recoleccion=this.add.text(300, 10, 'Recoleccion: '+ suma, { font: '16px Arial', fill: '#ffffff' })
+		tiempo=this.add.text(470, 10, 'Tiempo: '+ time, { font: '16px Arial', fill: '#ffffff' })
+		recoleccion=this.add.text(650, 10, 'Recoleccion: '+ suma, { font: '16px Arial', fill: '#ffffff' })
 
 
 		botonVerde = this.add.sprite(42,600-95, 'block');
@@ -36,7 +36,7 @@ Ball.Desarrollo.prototype = {
 		
 		
 		
-		perdidos=this.add.text(200, 10, 'Perdidos: '+ time, { font: '16px Arial', fill: '#ffffff' })
+		perdidos=this.add.text(550, 10, 'Perdidos: '+ time, { font: '16px Arial', fill: '#ffffff' })
 		verdeText=this.add.text(100, 600-95, verde, { font: '42px Arial', fill: '#000000' })
 		rojoText=this.add.text(300, 600-95,  rojo, { font: '42px Arial', fill: '#000000' })
 		amarilloText=this.add.text(500, 600-95, amarillo, { font: '42px Arial', fill: '#000000' })
@@ -108,7 +108,7 @@ Ball.Desarrollo.prototype = {
 				grupo.remove(cajita);		
 				
 			}
-			if (time>1800){
+			if (time>500){
 				//this.gameOver();
 				this.game.state.start('GameOverDesarrollo');
 			}

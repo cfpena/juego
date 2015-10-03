@@ -1,4 +1,4 @@
-var velocidad=10;
+var velocidad=60;
 var prestamoDesarrollo=false;
 Ball.Preloader = function(game) {};
 Ball.Preloader.prototype = {
@@ -15,6 +15,9 @@ Ball.Preloader.prototype = {
 		this.load.image('title', 'img/title.png');
 		this.load.image('button-pause', 'img/button-pause.png');
 		this.load.image('screen-bg', 'img/screen-bg.png');
+		this.load.image('screen-gameover', 'resources/images/screen-gameover.png');
+		this.load.image('screen-gameover2', 'resources/images/screen-gameover2.png');
+
 		this.load.image('screen-mainmenu', 'img/screen-mainmenu.png');
 		this.load.image('screen-howtoplay', 'img/screen-howtoplay.png');
 		this.load.image('border-horizontal', 'img/border-horizontal.png');
@@ -30,6 +33,7 @@ Ball.Preloader.prototype = {
 		this.load.spritesheet('button-audio', 'img/button-audio.png', 35, 35);
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
 		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
+		
 		this.load.image('block', 'img/block.png', 95, 95);
 		this.load.image('robot1', 'resources/images/robot1.png', 166, 253);
 		this.load.image('robot2', 'resources/images/robot2.png', 167, 254);
