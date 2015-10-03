@@ -4,7 +4,7 @@ Ball.WinDesarrollo.prototype = {
 		create: function() {
 
 			prestamo = this.add.tileSprite(0, 0,800,600, 'fondo_carrera');
-			this.add.text(30, 30, '           HAS GANADO\N Derrotaste a Malena, pero aun puedes seguir produciendo,\n quieres seguir?', { font: '42px Arial', fill: '#ffffff' })
+			this.add.text(30, 30, '           HAS GANADO\n Derrotaste a Malena, pero aun puedes seguir produciendo,\n quieres seguir?', { font: '42px Arial', fill: '#ffffff' })
 
 			
 
