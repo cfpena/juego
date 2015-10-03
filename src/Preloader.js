@@ -17,6 +17,7 @@ Ball.Preloader.prototype = {
 		this.load.image('screen-bg', 'img/screen-bg.png');
 		this.load.image('screen-gameover', 'resources/images/screen-gameover.png');
 		this.load.image('screen-gameover2', 'resources/images/screen-gameover2.png');
+		this.load.image('ComoJugarDesarrollo', 'resources/images/comojugardesarrollo.png');
 
 		this.load.image('screen-mainmenu', 'img/screen-mainmenu.png');
 		this.load.image('screen-howtoplay', 'img/screen-howtoplay.png');

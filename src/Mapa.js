@@ -60,7 +60,7 @@ Ball.Mapa.prototype = {
 	 	this.game.state.start('Carrera');
 	},
 	irDesarrollo: function() {
-		this.game.state.start('Desarrollo');
+		this.game.state.start('ComoJugarDesarrollo');
 	},
 	initLevels: function() {
 
