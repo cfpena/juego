@@ -35,9 +35,11 @@ Ball.Preloader.prototype = {
 
 		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
 		this.load.image('back','resources/images/background.png');
+		this.load.image('menu','img/menu.png');
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
+
 
 		this.load.image('nave-1', 'resources/images/nave_01.png');
 		this.load.image('nave-2', 'resources/images/nave-camisa-D.png');
@@ -85,9 +87,12 @@ Ball.Preloader.prototype = {
 		this.load.image('planeta-6','resources/images/planeta_06.png');
 		this.load.image('planeta-7','resources/images/planeta_07.png');
 		this.load.image('glow-1','resources/images/LightRotate1.png');
+		this.load.image('roboto','resources/images/ROBOTA.png');
 
-
+		//load fonts
+		this.load.bitmapFont('future-earth','resources/fonts/espace/font.png','resources/fonts/espace/font.fnt');
 		this.load.audio('audio-bounce', ['audio/bounce.ogg', 'audio/bounce.mp3', 'audio/bounce.m4a']);
+
 	},
 	create: function() {
 		this.game.state.start('MainMenu');

@@ -6,6 +6,16 @@ Ball.Mapa.prototype = {
 
 	create: function() {
 
+		dialogo = [
+		'',
+		'Bienvenido humano\nesto es "Adventure Galaxy"',
+		'Soy Roboto y te ayudare\nen esta aventura,',
+		'Para comenzar escoge una\nmision en el mapa',
+		];
+
+		index = 0; 
+		line = "";
+
 		//var counter = 0 ;
 		//var step = Math.PI * 2 / 360 ;
 	     this.game.add.tileSprite(0, 0, 800, 600, 'back');
@@ -13,19 +23,19 @@ Ball.Mapa.prototype = {
 	     buttonCFN = this.game.add.button(350,210,'planeta-cfn',undefined,this,2,1,0);
 	     buttonCFN.name = 'planetaCFN';
 	     buttonCFN.scale.setTo(0.25, 0.25);
-		this.add.text(350,150, 'CFN', { font: '25px Arial', fill: '#ffffff' })
+	     titlePlanetCFN = this.game.add.bitmapText(90,450,'future-earth','CFN');
+	     titlePlanetCFN.scale.setTo(1.4,1.4)
+	     buttonCFN.addChild(titlePlanetCFN);
 
 
 	     buttonCarrera = this.game.add.button(50,210,'planeta-carrera',this.irCarrera,this,2,1,0);
 	     buttonCarrera.name = 'planetaCarrera';
 	     buttonCarrera.scale.setTo(0.2, 0.2);
-	     this.add.text(10,150, 'PLAN RENOVA', { font: '25px Arial', fill: '#ffffff' })
 
 
 	     buttonIndustria = this.game.add.button(650,210,'planeta-industria',this.irDesarrollo,this,2,1,0);
 	     buttonIndustria.name = 'planetaCarrera';
 	     buttonIndustria.scale.setTo(0.25, 0.25);
-	     this.add.text(590,130, 'DESARROLLO', { font: '25px Arial', fill: '#ffffff' })
 
 
 	     //planetas alternos
@@ -52,6 +62,11 @@ Ball.Mapa.prototype = {
 	     carrera = this.add.group();
 	     carrera.add(glow);
 	     carrera.add(buttonCarrera);
+	     titleCarreras = this.game.add.bitmapText(45,320,'future-earth','phobos');
+	     titleCarreras.scale.setTo(0.30,0.30);
+	     carrera.add(titleCarreras);
+
+
 
 	     //planeta de desarrollo
 	     glow2 =this.make.sprite(600,200,'glow-1');
@@ -59,8 +74,52 @@ Ball.Mapa.prototype = {
 	     industria = this.add.group();
 	     industria.add(glow2);
 	     industria.add(buttonIndustria);
+	     titleDesarrollo = this.game.add.bitmapText(650,320,'future-earth','zep');
+	     titleDesarrollo.scale.setTo(0.30,0.30);
+	     industria.add(titleDesarrollo);
 
-	},
+	     //planetas genericos
+	     titlePlanet1 = this.game.add.bitmapText(90,410,'future-earth','yort');
+	     titlePlanet1.scale.setTo(1.2,1.2);
+	     button1.addChild(titlePlanet1);
+
+	     titlePlanet2 = this.game.add.bitmapText(90,410,'future-earth','asoal');
+	     titlePlanet2.scale.setTo(1.2,1.2);
+	     button2.addChild(titlePlanet2);
+
+	     titlePlanet3 = this.game.add.bitmapText(90,-100,'future-earth','aokok');
+	     titlePlanet3.scale.setTo(1.5,1.5);
+	     button3.addChild(titlePlanet3);
+
+	     titlePlanet4 = this.game.add.bitmapText(-50,-100,'future-earth','trocks');
+	     titlePlanet4.scale.setTo(1.5,1.5);
+	     button4.addChild(titlePlanet4);
+
+
+	     //dialogo
+	     dialogoAnim = this.game.add.bitmapText(200,500,'future-earth');
+	     dialogoAnim.scale.setTo(0.5,0.5);
+	     this.nextLine();
+	     ayuda = this.add.group();
+	     roboto = this.add.sprite(50,440,'roboto');
+	     roboto.scale.setTo(0.6,0.6);
+	     ayuda_shadow = this.add.sprite(roboto.x+10,roboto.y+8,roboto.frame);
+	     ayuda_shadow.tint = 0x000000;
+	     ayuda_shadow.alpha = 0.6;
+	     poly = new Phaser.Polygon([ new Phaser.Point(0, 450), new Phaser.Point(800, 450), new Phaser.Point(800, 600), new Phaser.Point(0, 600) ]);
+
+    	graphics = this.add.graphics(0, 0);
+	    graphics.beginFill(0x000000);
+    	graphics.drawPolygon(poly.points);
+    	graphics.endFill();
+    	graphics.alpha = 0.6;
+		ayuda.add(graphics)
+	     ayuda.add(ayuda_shadow);
+	     ayuda.add(roboto);
+	     ayuda.add(dialogoAnim);
+	     
+},
+
 	irCarrera: function() {
 	 	this.game.state.start('ComoJugarCarrera');
 	},
@@ -83,12 +142,9 @@ Ball.Mapa.prototype = {
 
     },
 	update: function() {
-		// Move sprite up and down smoothly for show
+		
 	     var tStep = Math.sin( counter ) ;
-	 //    planetaSp.y = (this.game.height/2) + tStep * 30 ;
-	 //    planetaSp.rotation += Phaser.Math.degToRad( 0.1 * tStep ) ;
-	 //    counter += step ;
-
+	
 	    buttonCFN.y = 210 + tStep * 10 ;
 	    buttonCFN.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
 
@@ -113,13 +169,8 @@ Ball.Mapa.prototype = {
 	    button4.y = 110 - tStep * 20 ;
 	    button4.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
 
-
 	    counter += step ;
 
-
-	    // button3.y = 100 + tStep * 30 ;
-	    // button3.rotation += Phaser.Math.degToRad( 0.1 * tStep ) ;
-	    // counter += step ;
     },
 	wallCollision: function() {
 
@@ -131,8 +182,32 @@ Ball.Mapa.prototype = {
 
     },
 	render: function() {
-		// this.game.debug.body(this.ball);
-		// this.game.debug.body(this.hole);
-		//this.game.debug.spriteInfo(planetaSp, 32, 32);
+
+	},
+
+	updateLine: function(){
+		if (line.length < dialogo[index].length)
+    		{
+        		line = dialogo[index].substr(0, line.length + 1);
+        		dialogoAnim.text = line;
+    		}
+    	else
+    		{
+        		this.time.events.add(Phaser.Timer.SECOND * 2, this.nextLine, this);
+    		}
+	},
+
+	nextLine: function() {
+
+    	index++;
+
+    	if (index < dialogo.length)
+   	 	{
+        	line = '';
+        	this.time.events.repeat(80, dialogo[index].length + 1, this.updateLine, this);
+    	}else{
+    		ayuda.visible=false;
+    	}
+
 	}
 };
