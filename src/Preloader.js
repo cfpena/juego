@@ -21,6 +21,8 @@ Ball.Preloader.prototype = {
 		this.load.image('screen-gameover2', 'resources/images/screen-gameover2.png');
 		this.load.image('ComoJugarDesarrollo', 'resources/images/comojugardesarrollo.png');
 
+		this.load.image('banda', 'resources/images/BANDA.png');
+		this.load.image('fabrica', 'resources/images/Fabrica.png');
 		this.load.image('screen-mainmenu', 'img/screen-mainmenu.png');
 		this.load.image('screen-howtoplay', 'img/screen-howtoplay.png');
 		this.load.image('border-horizontal', 'img/border-horizontal.png');
@@ -36,7 +38,7 @@ Ball.Preloader.prototype = {
 		this.game.load.image('planetaSprite', 'img/planeta.png');
 
 		this.load.image('nave-1', 'resources/images/nave_01.png');
-		this.load.image('nave-2', 'resources/images/nave_02.png');
+		this.load.image('nave-2', 'resources/images/nave-camisa-D.png');
 		this.load.image('nave-3', 'resources/images/nave_03.png');
 		this.load.image('asteroide-5', 'resources/images/asteroide_05.png');
 		this.load.image('balaV', 'resources/images/balaV.png');
@@ -51,6 +53,10 @@ Ball.Preloader.prototype = {
 		this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
 
 		this.load.image('block', 'img/block.png', 95, 95);
+		this.load.image('caja1', 'resources/images/caja1.png');
+		this.load.image('caja2', 'resources/images/caja2.png');
+		this.load.image('caja3', 'resources/images/caja3.png');
+		this.load.image('caja4', 'resources/images/caja4.png');
 		this.load.image('robot1', 'resources/images/robot1.png', 166, 253);
 		this.load.image('robot2', 'resources/images/robot2.png', 167, 254);
 		this.load.image('robot3', 'resources/images/robot3.png', 166, 248);

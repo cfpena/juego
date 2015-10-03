@@ -206,6 +206,7 @@ Ball.Carrera.prototype = {
 
 		if (isNave2){
 			ship.loadTexture("nave-2");
+			ship.scale.setTo(0.03, 0.03);
 			velocidadNave += 100;
 		}
 

@@ -9,26 +9,31 @@ Ball.Mapa.prototype = {
 		//var counter = 0 ;
 		//var step = Math.PI * 2 / 360 ;
 	     this.game.add.tileSprite(0, 0, 800, 600, 'back');
-
+	     
 	     buttonCFN = this.game.add.button(350,210,'planeta-cfn',undefined,this,2,1,0);
 	     buttonCFN.name = 'planetaCFN';
 	     buttonCFN.scale.setTo(0.25, 0.25);
+		this.add.text(350,150, 'CFN', { font: '25px Arial', fill: '#ffffff' })
+
 
 	     buttonCarrera = this.game.add.button(50,210,'planeta-carrera',this.irCarrera,this,2,1,0);
 	     buttonCarrera.name = 'planetaCarrera';
 	     buttonCarrera.scale.setTo(0.2, 0.2);
+	     this.add.text(10,150, 'PLAN RENOVA', { font: '25px Arial', fill: '#ffffff' })
 
 
 	     buttonIndustria = this.game.add.button(650,210,'planeta-industria',this.irDesarrollo,this,2,1,0);
 	     buttonIndustria.name = 'planetaCarrera';
 	     buttonIndustria.scale.setTo(0.25, 0.25);
+	     this.add.text(590,130, 'DESARROLLO', { font: '25px Arial', fill: '#ffffff' })
+
 
 	     //planetas alternos
 	     button1 = this.game.add.button(500,410,'planeta-3',undefined,this,2,1,0);
 	     button1.name = 'planeta1';
 	     button1.scale.setTo(0.27, 0.27);
 
-	     button2= this.game.add.button(170,410,'planeta-4',undefined,this,2,1,0);
+	     button2= this.game.add.button(110,390,'planeta-4',undefined,this,2,1,0);
 	     button2.name = 'planeta2';
 	     button2.scale.setTo(0.27, 0.27);
 
@@ -36,7 +41,7 @@ Ball.Mapa.prototype = {
 	     button3.name = 'planeta3';
 	     button3.scale.setTo(0.20, 0.20);
 
-	     button4 = this.game.add.button(170,110,'planeta-6',undefined,this,2,1,0);
+	     button4 = this.game.add.button(230,110,'planeta-6',undefined,this,2,1,0);
 	     button4.name = 'planeta4';
 	     button4.scale.setTo(0.20, 0.20);
 
