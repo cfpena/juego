@@ -37,6 +37,7 @@ Ball.Preloader.prototype = {
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
 
+
 		this.load.image('nave-1', 'resources/images/nave_01.png');
 		this.load.image('nave-2', 'resources/images/nave-camisa-D.png');
 		this.load.image('nave-3', 'resources/images/nave_03.png');
