@@ -1,4 +1,4 @@
-Ball.Mapa = function(game) {};	
+Ball.Mapa = function(game) {};
 var counter = 0 ;
 		var step = Math.PI * 2 / 360 ;
 
@@ -17,7 +17,7 @@ Ball.Mapa.prototype = {
 	     buttonCarrera = this.game.add.button(50,210,'planeta-carrera',this.irCarrera,this,2,1,0);
 	     buttonCarrera.name = 'planetaCarrera';
 	     buttonCarrera.scale.setTo(0.2, 0.2);
-	     
+
 
 	     buttonIndustria = this.game.add.button(650,210,'planeta-industria',this.irDesarrollo,this,2,1,0);
 	     buttonIndustria.name = 'planetaCarrera';
@@ -47,14 +47,14 @@ Ball.Mapa.prototype = {
 	     carrera = this.add.group();
 	     carrera.add(glow);
 	     carrera.add(buttonCarrera);
-	     
+
 	     //planeta de desarrollo
 	     glow2 =this.make.sprite(600,200,'glow-1');
 	     glow2.scale.setTo(0.4,0.4)
 	     industria = this.add.group();
 	     industria.add(glow2);
 	     industria.add(buttonIndustria);
-    
+
 	},
 	irCarrera: function() {
 	 	this.game.state.start('Carrera');
@@ -86,11 +86,11 @@ Ball.Mapa.prototype = {
 
 	    buttonCFN.y = 210 + tStep * 10 ;
 	    buttonCFN.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
-	    
+
 	    carrera.y = tStep * 20 ;
 	    carrera.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
 	    glow.alpha = 0.7 - Math.abs(tStep) * .3;
-	    
+
 
 	    industria.y = tStep * 20 ;
 	    industria.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
@@ -98,16 +98,16 @@ Ball.Mapa.prototype = {
 
 	    button1.y = 410 + tStep * 20 ;
 	    button1.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
-	    
+
 	    button2.y = 410 + tStep * 20 ;
 	    button2.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
 
 	    button3.y = 110 - tStep * 20 ;
 	    button3.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
-	    
+
 	    button4.y = 110 - tStep * 20 ;
 	    button4.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
-	    
+
 
 	    counter += step ;
 
