@@ -18,6 +18,10 @@ Ball.WinDesarrollo.prototype = {
 
 
 
+
+
+
+
 		}};
 emit2 = {
 	action1 :function(){

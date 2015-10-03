@@ -62,7 +62,7 @@ Ball.Mapa.prototype = {
 
 	},
 	irCarrera: function() {
-	 	this.game.state.start('Carrera');
+	 	this.game.state.start('ComoJugarCarrera');
 	},
 	irDesarrollo: function() {
 		this.game.state.start('ComoJugarDesarrollo');

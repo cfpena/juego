@@ -14,8 +14,8 @@ Ball.Desarrollo.prototype = {
 	    this.add.sprite(200,0, 'banda');
 	    this.add.sprite(400,0, 'banda');
 	    this.add.sprite(600,0, 'banda');
-	    
-	    
+
+
 
 
 	    this.physics.p2.gravity.y = 300;

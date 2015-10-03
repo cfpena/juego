@@ -1,5 +1,7 @@
 var velocidad=60;
 var prestamoDesarrollo=false;
+var NaveNueva = false;
+var EscenarioNave = 1;
 Ball.Preloader = function(game) {};
 Ball.Preloader.prototype = {
 	preload: function() {
@@ -18,7 +20,7 @@ Ball.Preloader.prototype = {
 		this.load.image('screen-gameover', 'resources/images/screen-gameover.png');
 		this.load.image('screen-gameover2', 'resources/images/screen-gameover2.png');
 		this.load.image('ComoJugarDesarrollo', 'resources/images/comojugardesarrollo.png');
-		
+
 		this.load.image('banda', 'resources/images/BANDA.png');
 		this.load.image('fabrica', 'resources/images/Fabrica.png');
 		this.load.image('screen-mainmenu', 'img/screen-mainmenu.png');
@@ -35,6 +37,10 @@ Ball.Preloader.prototype = {
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
 
+
+		this.load.image('nave-1', 'resources/images/nave_01.png');
+		this.load.image('nave-2', 'resources/images/nave-camisa-D.png');
+		this.load.image('nave-3', 'resources/images/nave_03.png');
 		this.load.image('asteroide-5', 'resources/images/asteroide_05.png');
 		this.load.image('balaV', 'resources/images/balaV.png');
 		//	this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');

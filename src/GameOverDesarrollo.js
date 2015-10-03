@@ -3,7 +3,6 @@ Ball.GameOverDesarrollo.prototype = {
 
 		create: function() {
 
-			;
 
 			if (!prestamoDesarrollo){
 				prestamo = this.add.tileSprite(0, 0,800,600, 'screen-gameover')
