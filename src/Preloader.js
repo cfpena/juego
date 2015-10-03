@@ -38,6 +38,10 @@ Ball.Preloader.prototype = {
 		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
 		this.load.image('back','resources/images/background.png');
 		this.load.image('menu','img/menu.png');
+		this.load.image('planetaRojo', 'img/planetaRojo.png');
+
+		this.load.image('nave-1mini', 'resources/images/nave-camisa-D -mini.png');
+		this.load.image('nave-2mini', 'resources/images/nave_03mini.png');
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');

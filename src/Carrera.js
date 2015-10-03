@@ -56,21 +56,21 @@ Ball.Carrera.prototype = {
 
 	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
 	    starfield.fixedToCamera = true;
-		
+
 	    ship = this.add.sprite(this.game.world.centerX, lngPista-100, 'nave-1');
 	    ship.name = 'ship';
 	    ship.scale.setTo(0.25, 0.25);
-	    
+
 
 		asteroideG = this.game.add.sprite(80, 80, 'asteroide4');
 		asteroideG.name = 'asteroideG';
 	    asteroideG.anchor.x = asteroideG.anchor.y = 0.5 ;
 	    asteroideG.scale.setTo(6, 6);
 	    this.physics.p2.enable(asteroideG, false);
-		
+
 	    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
 	    this.physics.p2.enable(ship, false);
-	    
+
 
 	    this.camera.follow(ship);
 	    cursors = this.input.keyboard.createCursorKeys();
@@ -79,7 +79,7 @@ Ball.Carrera.prototype = {
 
 	animacionV1: function() {
 		v=200;
-		
+
 		//var shipCol = this.physics.p2.createCollisionGroup();
 
 		//this.physics.p2.updateBoundsCollisionGroup();
@@ -89,13 +89,13 @@ Ball.Carrera.prototype = {
 	    shipV.name = 'shipV';
 	    shipV.scale.setTo(0.25, 0.25);
 	    //shipV.smoothed = false;
-	    
+
 	    balaV.name = 'balaV';
-	    
+
 	    //balaV.anchor.x = balaV.anchor.y = 0.5 ;
 	    balaV.scale.setTo(0.5, 0.5);
-		
-		
+
+
 	    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
 	    this.physics.p2.enable(shipV, false);
 	    this.physics.p2.enable(balaV, false);
@@ -109,7 +109,7 @@ Ball.Carrera.prototype = {
 
 	popupEvento: function(evento){
 		//  You can drag the pop-up window around
-		
+
 		switch(evento){
 			case 1:
 				arrayDialog = ["¿Qué quieres?","¡No dejaré que\nme ganes!",
@@ -139,12 +139,12 @@ Ball.Carrera.prototype = {
 
 	    dialogProta = true;
 	    dialogAnta = false;
-	    
+
 
 	    funAnimacion2 = false;
-	    
+
 	},
-	
+
 	closeWindowPop: function() {
 
 
@@ -191,12 +191,12 @@ Ball.Carrera.prototype = {
 		v=200;
 		escenario = 2;
 		timerExp.stop();
-		lngPista = 10000;
+		lngPista = 2000;
 		NumBalas = 2;
 		velocityBullet = -500
 		bulletTime=0;
 		meteoritos = [];
-		numMeteoritos = 200;
+		numMeteoritos = 20;
 		maxvida=10;
 		vida = 3;
 		meta = 50;
@@ -252,7 +252,7 @@ Ball.Carrera.prototype = {
 			ship.scale.setTo(0.03, 0.03);
 			velocidadNave += 100;
 		}
-
+		
 			//Nueva que hay que poner
 			//Creación de disparos
 			bullets = this.add.group();
@@ -386,7 +386,7 @@ Ball.Carrera.prototype = {
 						shipV.body.velocity.y = 0;
 						//balaV.body.velocity.y = 50;
 						//this.game.physics.arcade.collide(balaV, asteroideG, this.collisionHandler, null, this);
-						
+
 
 					}
 
@@ -427,14 +427,14 @@ Ball.Carrera.prototype = {
 				if (parseInt(ship.y) < 300 && parseInt(ship.y) > 200){
 					animaciones = 2;
 					controles = false;
-					
+
 				}
 			}
 		}
 
 		if (ship.y<50){
 			if(escenario == 2){
-					this.game.state.start('WinCarrera');
+					this.game.state.start('AnimCarrera');
 			}
 		}
 
@@ -481,12 +481,12 @@ Ball.Carrera.prototype = {
 					dialogProta = true;
 					dialogAnta = false;
 				}
-				
+
 				textEscena1.setText(arrayDialog[tmpArrayD]);
-				tmpArrayD++;				
+				tmpArrayD++;
 				if (arrayDialog.length <= tmpArrayD) {
 					miDelay = this.game.time.events.loop(1000, this.closeWindowTiempo, this);
-					
+
 				}
 			}
 
@@ -516,7 +516,7 @@ Ball.Carrera.prototype = {
 	    //  If you return true then the pair will carry on into the narrow phase, potentially colliding.
 	    //  If you return false they will be removed from the narrow phase check all together.
 
-	    //  In this simple example if one of the bodies is our space ship, 
+	    //  In this simple example if one of the bodies is our space ship,
 	    //  and the other body is the green pepper sprite (frame ID 4) then we DON'T allow the collision to happen.
 	    //  Usually you would use a collision mask for something this simple, but it demonstates use.
 
@@ -529,7 +529,7 @@ Ball.Carrera.prototype = {
 	    if ((body1.sprite.name == 'asteroideG' && body2.sprite.name == 'balaV') || (body2.sprite.name == 'asteroideG' && body1.sprite.name == 'balaV') ){
 	    	asteroideG.destroy();
 	    	balaV.alpha = 0;
-	    	
+
 	    	if(escena1){
 	    		timerExp = this.game.time.create(false);
 
@@ -539,7 +539,7 @@ Ball.Carrera.prototype = {
 			    //  Start the timer running - this is important!
 			    //  It won't start automatically, allowing you to hook it to button events and the like.
 			    timerExp.start();
-	    		
+
 	    		//this.juego();
 	    		controles = true;
 	    		escena1 = false;
@@ -549,7 +549,7 @@ Ball.Carrera.prototype = {
 				explosionFuego.animations.play('right');
 	    		this.explosion();
 	    	}
-			
+
 	        return false;
 	    }
 
@@ -561,6 +561,6 @@ Ball.Carrera.prototype = {
 		miDelay.stop;
 	},
 	render: function() {
-		
+
 	}
 };
