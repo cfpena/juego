@@ -30,7 +30,9 @@ Ball.Preloader.prototype = {
 		this.load.image('fondo2', 'img/fondo2.jpg');
 		this.load.image('fondo_carrera', 'img/fondo_carrera.jpg');
 		this.load.image('screen-gameoverc', 'resources/images/cx.png');
-
+		this.load.image('screen-gameoverrenova', 'resources/images/gameovervehiculo.png');
+		this.load.image('ComoJugarCarrera', 'resources/images/ComoJugarCarrera.png');
+		this.load.image('HasGanadoCarrera', 'resources/images/HasGanadoCarrera.png');
 		//this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
 
 		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
