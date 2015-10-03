@@ -45,9 +45,12 @@ Ball.Preloader.prototype = {
 		this.load.image('planeta-6','resources/images/planeta_06.png');
 		this.load.image('planeta-7','resources/images/planeta_07.png');
 		this.load.image('glow-1','resources/images/LightRotate1.png');
-		
+		this.load.image('roboto','resources/images/ROBOTA.png');
 
+		//load fonts
+		this.load.bitmapFont('future-earth','resources/fonts/espace/font.png','resources/fonts/espace/font.fnt');
 		this.load.audio('audio-bounce', ['audio/bounce.ogg', 'audio/bounce.mp3', 'audio/bounce.m4a']);
+
 	},
 	create: function() {
 		this.game.state.start('MainMenu');
