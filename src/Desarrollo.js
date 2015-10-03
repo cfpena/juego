@@ -10,11 +10,7 @@ Ball.Desarrollo.prototype = {
 
 	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fabrica');
 	    starfield.fixedToCamera = true;
-	    this.add.sprite(0,0, 'banda');
-	    this.add.sprite(200,0, 'banda');
-	    this.add.sprite(400,0, 'banda');
-	    this.add.sprite(600,0, 'banda');
-
+	    
 
 
 
@@ -35,22 +31,15 @@ Ball.Desarrollo.prototype = {
 		recoleccion=this.add.text(630, 10, 'Recoleccion: '+ suma, { font: '24px Arial', fill: '#ffffff' })
 
 
-		botonVerde = this.add.sprite(39,600-95, 'caja1');
-		botonVerde.scale.set(0.3,0.3 );
-		botonRojo = this.add.sprite(200+42, 600-95, 'caja2');
-		botonRojo.scale.set(0.3,0.3 );
-		botonAmarillo = this.add.sprite(400+42, 600-95, 'caja3');
-		botonAmarillo.scale.set(0.3,0.3 );
-		botonAzul = this.add.sprite(600+42, 600-95, 'caja4');
-		botonAzul.scale.set(0.3,0.3 );
+		
 
 
 
 		perdidos=this.add.text(480, 10, 'Perdidos: '+ time, { font: '24px Arial', fill: '#ffffff' })
-		verdeText=this.add.text(100, 600-80, verde, { font: '42px Arial', fill: '#000000' })
-		rojoText=this.add.text(300, 600-80,  rojo, { font: '42px Arial', fill: '#000000' })
-		amarilloText=this.add.text(500, 600-80, amarillo, { font: '42px Arial', fill: '#000000' })
-		azulText=this.add.text(700, 600-80, azul, { font: '42px Arial', fill: '#000000' })
+		verdeText=this.add.text(140, 600-70, verde, { font: '42px Arial', fill: '#000000' })
+		rojoText=this.add.text(310, 600-70,  rojo, { font: '42px Arial', fill: '#000000' })
+		amarilloText=this.add.text(470, 600-70, amarillo, { font: '42px Arial', fill: '#000000' })
+		azulText=this.add.text(650, 600-70, azul, { font: '42px Arial', fill: '#000000' })
 
 
 		q = this.input.keyboard.addKey(Phaser.Keyboard.Q);
@@ -96,8 +85,13 @@ Ball.Desarrollo.prototype = {
 
 				numero=Math.floor((Math.random() * 4) + 1);
 				numeroCaja=Math.floor((Math.random() * 3) + 1);
+				pix=0;
+				if(numero==1)pix=140;
+				else if (numero==2) pix=310;
+				else if (numero==3) pix=470;
+				else if (numero==4) pix=650;
 
-				caja=this.add.sprite(numero*100+((numero-1)*100), 0, 'robot'+numeroCaja);
+				caja=this.add.sprite(pix, 0, 'robot'+numeroCaja);
 				caja.scale.set(0.3,0.3 );
 				caja.name=String(numero);
 			    this.physics.p2.enable(caja);
