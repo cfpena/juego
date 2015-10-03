@@ -8,8 +8,14 @@ Ball.Desarrollo.prototype = {
 	    this.physics.startSystem(Phaser.Physics.P2JS);
 	    this.physics.p2.restitution = 0.0;
 
-	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
+	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fabrica');
 	    starfield.fixedToCamera = true;
+	    this.add.sprite(0,0, 'banda');
+	    this.add.sprite(200,0, 'banda');
+	    this.add.sprite(400,0, 'banda');
+	    this.add.sprite(600,0, 'banda');
+	    
+	    
 
 
 	    this.physics.p2.gravity.y = 300;
@@ -25,22 +31,26 @@ Ball.Desarrollo.prototype = {
 	    azul=0;
 	    suma=0;
 
-		tiempo=this.add.text(470, 10, 'Tiempo: '+ time, { font: '16px Arial', fill: '#ffffff' })
-		recoleccion=this.add.text(650, 10, 'Recoleccion: '+ suma, { font: '16px Arial', fill: '#ffffff' })
+		tiempo=this.add.text(350, 10, 'Tiempo: '+ time, { font: '24px Arial', fill: '#ffffff' })
+		recoleccion=this.add.text(630, 10, 'Recoleccion: '+ suma, { font: '24px Arial', fill: '#ffffff' })
 
 
-		botonVerde = this.add.sprite(42,600-95, 'block');
-		botonRojo = this.add.sprite(200+42, 600-95, 'block');
-		botonAmarillo = this.add.sprite(400+42, 600-95, 'block');
-		botonAzul = this.add.sprite(600+42, 600-95, 'block');
+		botonVerde = this.add.sprite(39,600-95, 'caja1');
+		botonVerde.scale.set(0.3,0.3 );
+		botonRojo = this.add.sprite(200+42, 600-95, 'caja2');
+		botonRojo.scale.set(0.3,0.3 );
+		botonAmarillo = this.add.sprite(400+42, 600-95, 'caja3');
+		botonAmarillo.scale.set(0.3,0.3 );
+		botonAzul = this.add.sprite(600+42, 600-95, 'caja4');
+		botonAzul.scale.set(0.3,0.3 );
 
 
 
-		perdidos=this.add.text(550, 10, 'Perdidos: '+ time, { font: '16px Arial', fill: '#ffffff' })
-		verdeText=this.add.text(100, 600-95, verde, { font: '42px Arial', fill: '#000000' })
-		rojoText=this.add.text(300, 600-95,  rojo, { font: '42px Arial', fill: '#000000' })
-		amarilloText=this.add.text(500, 600-95, amarillo, { font: '42px Arial', fill: '#000000' })
-		azulText=this.add.text(700, 600-95, azul, { font: '42px Arial', fill: '#000000' })
+		perdidos=this.add.text(480, 10, 'Perdidos: '+ time, { font: '24px Arial', fill: '#ffffff' })
+		verdeText=this.add.text(100, 600-80, verde, { font: '42px Arial', fill: '#000000' })
+		rojoText=this.add.text(300, 600-80,  rojo, { font: '42px Arial', fill: '#000000' })
+		amarilloText=this.add.text(500, 600-80, amarillo, { font: '42px Arial', fill: '#000000' })
+		azulText=this.add.text(700, 600-80, azul, { font: '42px Arial', fill: '#000000' })
 
 
 		q = this.input.keyboard.addKey(Phaser.Keyboard.Q);
