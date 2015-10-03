@@ -7,7 +7,7 @@ Ball.Howto.prototype = {
 		line = "";
 		dialogo = [
 		   		'',
-		   		'en el futuro cercano, una malvada empresaria \nllamada Malena desea apoderarse de la galaxia, \nsin embargo una valiente joven de nombre\n Valentina hace todo lo posible por restaurar \nel orden en su galaxia. \nPero ella no cuenta con los\nrecursos suficientes para enfrentar a Malena, \nsin embargo la galaxia cuenta\ncon un apoyo incondicional de una empresa\n llamada CFN... \nTodo dependera de sus buenas decisiones.'
+		   		'en un futuro cercano, una malvada empresaria \nllamada Malena desea apoderarse de la galaxia, \nsin embargo una valiente joven de nombre\n Valentina hace todo lo posible por restaurar \nel orden en su galaxia. \nPero ella no cuenta con los\nrecursos suficientes para enfrentar a Malena, \nsin embargo la galaxia cuenta\ncon un apoyo incondicional de una empresa\n llamada CFN... \nTodo dependera de sus buenas decisiones.'
 		   		];
 			dialogoAnim = this.game.add.bitmapText(10,0,'future-earth');
 	     dialogoAnim.scale.setTo(0.38,0.38);
