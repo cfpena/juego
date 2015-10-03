@@ -24,7 +24,7 @@ Ball.Carrera.prototype = {
 		timerExp = this.game.time.create(false);
 		var tween=null;
 		total=0;
-	    this.physics.startSystem(Phaser.Physics.P2JS);
+    this.physics.startSystem(Phaser.Physics.P2JS);
 		this.physics.p2.setImpactEvents(true);
 		this.physics.p2.restitution = 0.8;
 		this.world.setBounds(0, 0, 800, lngPista);
@@ -41,9 +41,9 @@ Ball.Carrera.prototype = {
 	    ship.scale.setTo(0.25, 0.25);
 
 
-		asteroideG = this.game.add.sprite(0, 0, 'asteroide-5');
-		asteroideG.name = 'asteroideG';
-	    asteroideG.x = 0 ;
+			asteroideG = this.game.add.sprite(0, 0, 'asteroide-5');
+			asteroideG.name = 'asteroideG';
+		  asteroideG.x = 0 ;
 	    asteroideG.y = 0 ;
 	    asteroideG.anchor.x = asteroideG.anchor.y = 0.5 ;
 	    asteroideG.scale.setTo(3, 3);
@@ -146,61 +146,61 @@ Ball.Carrera.prototype = {
 		v=200;
 		escenario = 2;
 		timerExp.stop();
-		longitud = 10000;
+		lngPista = 10000;
 		NumBalas = 2;
-			bulletTime=0;
-			meteoritos = [];
-			numMeteoritos = 200;
-			maxvida=10;
-			vida = 10;
-			meta = 50;
-			CambioNave = 9000;
-			bandera = true;
-			isNave2=false;
-			var tween=null;
-			this.timer = 0;
-			this.totalTimer = 0;
-	    this.physics.startSystem(Phaser.Physics.P2JS);
-			this.physics.p2.setImpactEvents(true);
-			this.physics.p2.restitution = 0.8;
-			this.world.setBounds(0, 0, 800, longitud);
+		velocityBullet = -500
+		bulletTime=0;
+		meteoritos = [];
+		numMeteoritos = 200;
+		maxvida=10;
+		vida = 10;
+		meta = 50;
+		CambioNave = 9000;
+		bandera = true;
+		isNave2=false;
+		var tween=null;
+		this.timer = 0;
+		this.totalTimer = 0;
+    this.physics.startSystem(Phaser.Physics.P2JS);
+		this.physics.p2.setImpactEvents(true);
+		this.physics.p2.restitution = 0.8;
+		this.world.setBounds(0, 0, 800, lngPista);
 
-			var shipCol = this.physics.p2.createCollisionGroup();
-			var AsteroideCol = this.physics.p2.createCollisionGroup();
-			var BulletCol = this.physics.p2.createCollisionGroup();
+		var shipCol = this.physics.p2.createCollisionGroup();
+		var AsteroideCol = this.physics.p2.createCollisionGroup();
+		var BulletCol = this.physics.p2.createCollisionGroup();
 
-			this.physics.p2.updateBoundsCollisionGroup();
+		this.physics.p2.updateBoundsCollisionGroup();
 
-			//Escenario
-	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
-	    starfield.fixedToCamera = true;
-			this.totalTimeText = this.game.add.text(650, 30, "Total time: "+this.totalTimer, { font: '16px Arial', fill: '#ffffff' });
+		//Escenario
+    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
+    starfield.fixedToCamera = true;
 
-			//creacion de asteroides
-			asteroides = this.add.group();
-			asteroides.enableBody = true;
-			asteroides.physicsBodyType = Phaser.Physics.P2JS;
+		//creacion de asteroides
+		asteroides = this.add.group();
+		asteroides.enableBody = true;
+		asteroides.physicsBodyType = Phaser.Physics.P2JS;
 
-			var vegFrames = [ 1, 3, 4, 8 ];
+		var vegFrames = [ 1, 3, 4, 8 ];
 
-			for (var i = 0; i < numMeteoritos; i++)
-			{
-					var ast = asteroides.create(this.world.randomX, this.world.randomY, 'Asteroides', this.rnd.pick(vegFrames));
-					ast.body.setCollisionGroup(AsteroideCol);
-					ast.body.collides([AsteroideCol, shipCol]);
-					ast.body.collides(BulletCol, this.DisparoAsteroide, this);
-			}
+		for (var i = 0; i < numMeteoritos; i++)
+		{
+				var ast = asteroides.create(this.world.randomX, this.world.randomY, 'Asteroides', this.rnd.pick(vegFrames));
+				ast.body.setCollisionGroup(AsteroideCol);
+				ast.body.collides([AsteroideCol, shipCol]);
+				ast.body.collides(BulletCol, this.DisparoAsteroide, this);
+		}
 
-			//Creación de nave
-	    ship = this.add.sprite(this.game.world.centerX, longitud-100, 'nave-1');
-	    ship.name = 'nave';
-	  	ship.scale.setTo(0.25, 0.25);
-	    ship.smoothed = false;
-	    this.physics.p2.enable(ship, false);
-	    ship.body.setCircle(28);
-	    ship.body.fixedRotation = true;
-			ship.body.setCollisionGroup(shipCol);
-			ship.body.collides(AsteroideCol, this.colision, this);
+		//Creación de nave
+    ship = this.add.sprite(this.game.world.centerX, lngPista-100, 'nave-1');
+    ship.name = 'nave';
+  	ship.scale.setTo(0.25, 0.25);
+    ship.smoothed = false;
+    this.physics.p2.enable(ship, false);
+    ship.body.setCircle(28);
+    ship.body.fixedRotation = true;
+		ship.body.setCollisionGroup(shipCol);
+		ship.body.collides(AsteroideCol, this.colision, this);
 
 
 			//Nueva que hay que poner
@@ -221,6 +221,7 @@ Ball.Carrera.prototype = {
 					//b.events.onOutOfBounds.add(this.resetDisparo, this);
 			}
 
+			this.totalTimeText = this.game.add.text(650, 30, "Total time: "+this.totalTimer, { font: '16px Arial', fill: '#ffffff' });
 			this.vidaText=this.add.text(64, 30, 'Vidas: '+ vida, { font: '16px Arial', fill: '#ffffff' });
 			this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
 	    this.camera.follow(ship);
@@ -235,7 +236,7 @@ Ball.Carrera.prototype = {
         bullet = bullets.getFirstExists(false);
         if (bullet){
             bullet.reset(ship.x + 6, ship.y - 8);
-            bullet.body.velocity.y = -300;
+            bullet.body.velocity.y = velocityBullet;
             bulletTime = this.time.now + 150;
         }
     }
@@ -256,14 +257,16 @@ Ball.Carrera.prototype = {
 	},
 
 	DisparoAsteroide:function(bullet,asteroide){
-		bullet.sprite.kill();
-		asteroide.sprite.kill();
-		this.boom(asteroide);
+		bullet.sprite.kill()
+		asteroide.sprite.kill()
+		crow = this.add.sprite(asteroide.x-70, asteroide.y-100, 'explosion');
+		crow.animations.add('right', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 8, false);
+		crow.animations.play('right');
 	},
 
 	//Esta funcion hay que implementarla
 	boom: function(asteroide){
-		crow = this.add.sprite(asteroide.x, asteroide.y, 'explosion');
+		crow = this.add.sprite(asteroide.x-50, asteroide.y-50, 'explosion');
 		crow.animations.add('right', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 8, false);
 		crow.animations.play('right');
 	},
@@ -404,20 +407,19 @@ Ball.Carrera.prototype = {
 
 		    if (cursors.up.isDown)
 		    {
-		        ship.body.moveUp(200);
-				if (ship.y <= lngPista - (Ball._HEIGHT/2) && ship.y >= Ball._HEIGHT/2 && escenario != 1){
-					this.vidaText.y=ship.y-270;
-					this.totalTimeText.y=ship.y-270;
-				}
+		      ship.body.moveUp(200);
+					if (ship.y <= lngPista - (Ball._HEIGHT/2) && ship.y >= Ball._HEIGHT/2 && escenario != 1){
+						this.vidaText.y=ship.y-270;
+						this.totalTimeText.y=ship.y-270;
+					}
 		    }
 		    else if (cursors.down.isDown)
 		    {
-
-		        ship.body.moveDown(200);
-				if (ship.y <= lngPista - (Ball._HEIGHT/2) && ship.y >= Ball._HEIGHT/2 && escenario != 1){
-					this.vidaText.y=ship.y-270;
-					this.totalTimeText.y=ship.y-270;
-				}
+		      ship.body.moveDown(200);
+					if (ship.y <= lngPista - (Ball._HEIGHT/2) && ship.y >= Ball._HEIGHT/2 && escenario != 1){
+						this.vidaText.y=ship.y-270;
+						this.totalTimeText.y=ship.y-270;
+					}
 		    }
 		}
 	    if (!this.camera.atLimit.x)
@@ -427,7 +429,7 @@ Ball.Carrera.prototype = {
 
 	    if (!this.camera.atLimit.y)
 	    {
-	        starfield.tilePosition.y -= (ship.body.velocity.y * this.time.physicsElapsed);
+	      starfield.tilePosition.y -= (ship.body.velocity.y * this.time.physicsElapsed);
 	    }
 
 
