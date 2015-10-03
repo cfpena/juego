@@ -24,7 +24,7 @@ Ball.Carrera.prototype = {
 		timerExp = this.game.time.create(false);
 		var tween=null;
 		total=0;
-	  this.physics.startSystem(Phaser.Physics.P2JS);
+	    this.physics.startSystem(Phaser.Physics.P2JS);
 		this.physics.p2.setImpactEvents(true);
 		this.physics.p2.restitution = 0.8;
 		this.world.setBounds(0, 0, 800, lngPista);
@@ -33,109 +33,112 @@ Ball.Carrera.prototype = {
 
 		this.physics.p2.updateBoundsCollisionGroup();
 
-	  starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
-	  starfield.fixedToCamera = true;
+	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
+	    starfield.fixedToCamera = true;
 
-	  ship = this.add.sprite(this.game.world.centerX, lngPista-100, 'nave-1');
-	  ship.name = 'ship';
-	  ship.scale.setTo(0.25, 0.25);
+	    ship = this.add.sprite(this.game.world.centerX, lngPista-100, 'nave-1');
+	    ship.name = 'ship';
+	    ship.scale.setTo(0.25, 0.25);
 
 
 		asteroideG = this.game.add.sprite(0, 0, 'asteroide-5');
 		asteroideG.name = 'asteroideG';
-    asteroideG.x = 0 ;
-    asteroideG.y = 0 ;
-    asteroideG.anchor.x = asteroideG.anchor.y = 0.5 ;
-    asteroideG.scale.setTo(3, 3);
-    this.physics.p2.enable(asteroideG, false);
+	    asteroideG.x = 0 ;
+	    asteroideG.y = 0 ;
+	    asteroideG.anchor.x = asteroideG.anchor.y = 0.5 ;
+	    asteroideG.scale.setTo(3, 3);
+	    this.physics.p2.enable(asteroideG, false);
 
-    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
-    this.physics.p2.enable(ship, false);
+	    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
+	    this.physics.p2.enable(ship, false);
 
 
-    this.camera.follow(ship);
-    cursors = this.input.keyboard.createCursorKeys();
+	    this.camera.follow(ship);
+	    cursors = this.input.keyboard.createCursorKeys();
 	},
 
 
 	animacionV1: function() {
 		v=200;
 
-	//var shipCol = this.physics.p2.createCollisionGroup();
+		//var shipCol = this.physics.p2.createCollisionGroup();
 
-	//this.physics.p2.updateBoundsCollisionGroup();
+		//this.physics.p2.updateBoundsCollisionGroup();
 
-    balaV = this.game.add.sprite(this.game.world.centerX/2+this.game.world.centerX, 100, 'balaV');
-    shipV = this.add.sprite(this.game.world.centerX/2+this.game.world.centerX, lngPista-100, 'nave-3');
-    shipV.name = 'shipV';
-    shipV.scale.setTo(0.25, 0.25);
-    //shipV.smoothed = false;
+	    balaV = this.game.add.sprite(this.game.world.centerX/2+this.game.world.centerX, 100, 'balaV');
+	    shipV = this.add.sprite(this.game.world.centerX/2+this.game.world.centerX, lngPista-100, 'nave-3');
+	    shipV.name = 'shipV';
+	    shipV.scale.setTo(0.25, 0.25);
+	    //shipV.smoothed = false;
 
-    balaV.name = 'balaV';
+	    balaV.name = 'balaV';
 
-    //balaV.anchor.x = balaV.anchor.y = 0.5 ;
-    balaV.scale.setTo(0.5, 0.5);
+	    //balaV.anchor.x = balaV.anchor.y = 0.5 ;
+	    balaV.scale.setTo(0.5, 0.5);
 
 
-    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
-    this.physics.p2.enable(shipV, false);
-    this.physics.p2.enable(balaV, false);
-    balaV.alpha = 0 ;
-    //shipV.body.setCircle(28);
+	    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
+	    this.physics.p2.enable(shipV, false);
+	    this.physics.p2.enable(balaV, false);
+	    balaV.alpha = 0 ;
+	    //shipV.body.setCircle(28);
 	    //shipV.body.fixedRotation = true;
 		//shipV.body.setCollisionGroup(shipCol);
 		this.game.physics.p2.setPostBroadphaseCallback(this.checkBullet, this);
-    funAnimacion1 = false;
+	    funAnimacion1 = false;
 	},
 
 	popupEvento: function(){
 		//  You can drag the pop-up window around
-    popup = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'fondo_carrera');
-    popup.anchor.set(0.5);
-    popup.inputEnabled = true;
-    popup.input.enableDrag();
+	    popup = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'fondo_carrera');
+	    popup.anchor.set(0.5);
+	    popup.inputEnabled = true;
+	    popup.input.enableDrag();
 
-    //  Position the close button to the top-right of the popup sprite (minus 8px for spacing)
-    var pw = (popup.width / 2) - 30;
-    var ph = (popup.height / 2) - 8;
+	    //  Position the close button to the top-right of the popup sprite (minus 8px for spacing)
+	    var pw = (popup.width / 2) - 30;
+	    var ph = (popup.height / 2) - 8;
 
-    //  And click the close button to close it down again
-    var closeButton = this.game.make.sprite(pw, -ph, 'ball');
-    closeButton.inputEnabled = true;
-    closeButton.input.priorityID = 1;
-    closeButton.events.onInputDown.add(this.closeWindowPop, this);
+	    //  And click the close button to close it down again
+	    var closeButton = this.game.make.sprite(pw, -ph, 'ball');
+	    closeButton.inputEnabled = true;
+	    closeButton.input.priorityID = 1;
+	    closeButton.events.onInputDown.add(this.closeWindowPop, this);
 
-    //  Add the "close button" to the popup window image
-    popup.addChild(closeButton);
+	    //  Add the "close button" to the popup window image
+	    popup.addChild(closeButton);
 
-    //  Hide it awaiting a click
-    popup.scale.set(0);
+	    //  Hide it awaiting a click
+	    popup.scale.set(0);
 
-    //  Pop the window open
-    //game.input.onDown.add(OpenWindow, this);
+	    //  Pop the window open
+	    //game.input.onDown.add(OpenWindow, this);
 
 
-    //  Create a tween that will pop-open the window, but only if it's not already tweening or open
-    tween = this.game.add.tween(popup.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Elastic.Out, true);
-    funAnimacion2 = false;
+	    //  Create a tween that will pop-open the window, but only if it's not already tweening or open
+	    tween = this.game.add.tween(popup.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Elastic.Out, true);
+	    funAnimacion2 = false;
 
 	},
 
 	closeWindowPop: function() {
-    //  Create a tween that will close the window, but only if it's not already tweening or closed
-    tween = this.game.add.tween(popup.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
-    //shipV.body.velocity.y = 100;
-    //shipV.body.moveUp(200);
-    shipV.y = shipV.y + 100;
-    controles = true;
+
+
+
+	    //  Create a tween that will close the window, but only if it's not already tweening or closed
+	    tween = this.game.add.tween(popup.scale).to( { x: 0, y: 0 }, 500, Phaser.Easing.Elastic.In, true);
+	    //shipV.body.velocity.y = 100;
+	    //shipV.body.moveUp(200);
+	    shipV.y = shipV.y + 100;
+	    controles = true;
 	},
 
 	explosion: function(){
 		emitter = this.game.add.emitter(this.game.world.centerX, 20, 20);
-    //  Here we're passing an array of image keys. It will pick one at random when emitting a new particle.
+	    //  Here we're passing an array of image keys. It will pick one at random when emitting a new particle.
 
-    emitter.makeParticles(['ball', 'hole', 'ball']);
-    emitter.start(false, 5000, 200);
+	    emitter.makeParticles(['ball', 'hole', 'ball']);
+	    emitter.start(false, 5000, 200);
 	},
 
 	//Escenario 2------------------------------------------------------------------------
@@ -144,84 +147,85 @@ Ball.Carrera.prototype = {
 		escenario = 2;
 		timerExp.stop();
 		longitud = 10000;
-		bulletTime=0;
-		meteoritos = [];
-		numMeteoritos = 200;
-		maxvida=10;
-		vida = 10;
-		meta = 50;
-		CambioNave = 9000;
-		bandera = true;
-		isNave2=false;
-		var tween=null;
-		this.timer = 0;
-		this.totalTimer = 0;
-    this.physics.startSystem(Phaser.Physics.P2JS);
-		this.physics.p2.setImpactEvents(true);
-		this.physics.p2.restitution = 0.8;
-		this.world.setBounds(0, 0, 800, longitud);
+		NumBalas = 2;
+			bulletTime=0;
+			meteoritos = [];
+			numMeteoritos = 200;
+			maxvida=10;
+			vida = 10;
+			meta = 50;
+			CambioNave = 9000;
+			bandera = true;
+			isNave2=false;
+			var tween=null;
+			this.timer = 0;
+			this.totalTimer = 0;
+	    this.physics.startSystem(Phaser.Physics.P2JS);
+			this.physics.p2.setImpactEvents(true);
+			this.physics.p2.restitution = 0.8;
+			this.world.setBounds(0, 0, 800, longitud);
 
-		var shipCol = this.physics.p2.createCollisionGroup();
-		var AsteroideCol = this.physics.p2.createCollisionGroup();
-		var BulletCol = this.physics.p2.createCollisionGroup();
+			var shipCol = this.physics.p2.createCollisionGroup();
+			var AsteroideCol = this.physics.p2.createCollisionGroup();
+			var BulletCol = this.physics.p2.createCollisionGroup();
 
-		this.physics.p2.updateBoundsCollisionGroup();
+			this.physics.p2.updateBoundsCollisionGroup();
 
-		//Escenario
-    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
-    starfield.fixedToCamera = true;
-		this.totalTimeText = this.game.add.text(650, 30, "Total time: "+this.totalTimer, { font: '16px Arial', fill: '#ffffff' });
+			//Escenario
+	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
+	    starfield.fixedToCamera = true;
+			this.totalTimeText = this.game.add.text(650, 30, "Total time: "+this.totalTimer, { font: '16px Arial', fill: '#ffffff' });
 
-		//creacion de asteroides
-		asteroides = this.add.group();
-		asteroides.enableBody = true;
-		asteroides.physicsBodyType = Phaser.Physics.P2JS;
+			//creacion de asteroides
+			asteroides = this.add.group();
+			asteroides.enableBody = true;
+			asteroides.physicsBodyType = Phaser.Physics.P2JS;
 
-		var vegFrames = [ 1, 3, 4, 8 ];
+			var vegFrames = [ 1, 3, 4, 8 ];
 
-		for (var i = 0; i < 200; i++)
-		{
-				var ast = asteroides.create(this.world.randomX, this.world.randomY, 'Asteroides', this.rnd.pick(vegFrames));
-				ast.body.setCollisionGroup(AsteroideCol);
-				ast.body.collides([AsteroideCol, shipCol]);
-				ast.body.collides(BulletCol, this.DisparoAsteroide, this);
-		}
+			for (var i = 0; i < numMeteoritos; i++)
+			{
+					var ast = asteroides.create(this.world.randomX, this.world.randomY, 'Asteroides', this.rnd.pick(vegFrames));
+					ast.body.setCollisionGroup(AsteroideCol);
+					ast.body.collides([AsteroideCol, shipCol]);
+					ast.body.collides(BulletCol, this.DisparoAsteroide, this);
+			}
 
-		//Creación de nave
-    ship = this.add.sprite(this.game.world.centerX, longitud-100, 'nave-1');
-    ship.name = 'nave';
-  	ship.scale.setTo(0.25, 0.25);
-    ship.smoothed = false;
-    this.physics.p2.enable(ship, false);
-    ship.body.setCircle(28);
-    ship.body.fixedRotation = true;
-		ship.body.setCollisionGroup(shipCol);
-		ship.body.collides(AsteroideCol, this.colision, this);
+			//Creación de nave
+	    ship = this.add.sprite(this.game.world.centerX, longitud-100, 'nave-1');
+	    ship.name = 'nave';
+	  	ship.scale.setTo(0.25, 0.25);
+	    ship.smoothed = false;
+	    this.physics.p2.enable(ship, false);
+	    ship.body.setCircle(28);
+	    ship.body.fixedRotation = true;
+			ship.body.setCollisionGroup(shipCol);
+			ship.body.collides(AsteroideCol, this.colision, this);
 
 
-		//Nueva que hay que poner
-		//Creación de disparos
-		bullets = this.add.group();
-		bullets.enableBody = true;
-		bullets.physicsBodyType = Phaser.Physics.P2JS;
+			//Nueva que hay que poner
+			//Creación de disparos
+			bullets = this.add.group();
+			bullets.enableBody = true;
+			bullets.physicsBodyType = Phaser.Physics.P2JS;
 
-		for (var i = 0; i < 2; i++){
-				var b = bullets.create(0, 0, 'disparo');
-				b.name = 'bullet2';
-				b.exists = false;
-				b.visible = false;
-				b.body.setCollisionGroup(BulletCol);
-				b.body.collides([BulletCol, AsteroideCol]);
-				b.body.fixedRotation = true
-				//b.checkWorldBounds = true;
-				//b.events.onOutOfBounds.add(this.resetDisparo, this);
-		}
+			for (var i = 0; i < NumBalas; i++){
+					var b = bullets.create(0, 0, 'disparo');
+					b.name = 'bullet2';
+					b.exists = false;
+					b.visible = false;
+					b.body.setCollisionGroup(BulletCol);
+					b.body.collides([BulletCol, AsteroideCol]);
+					b.body.fixedRotation = true
+					//b.checkWorldBounds = true;
+					//b.events.onOutOfBounds.add(this.resetDisparo, this);
+			}
 
-		this.vidaText=this.add.text(64, 30, 'Vidas: '+ vida, { font: '16px Arial', fill: '#ffffff' });
-		this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
-    this.camera.follow(ship);
-    cursors = this.input.keyboard.createCursorKeys();
-		disparar = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+			this.vidaText=this.add.text(64, 30, 'Vidas: '+ vida, { font: '16px Arial', fill: '#ffffff' });
+			this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
+	    this.camera.follow(ship);
+	    cursors = this.input.keyboard.createCursorKeys();
+			disparar = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 	},
 
