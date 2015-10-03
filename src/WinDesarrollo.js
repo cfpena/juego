@@ -8,6 +8,10 @@ Ball.WinDesarrollo.prototype = {
 			botonVerde = this.add.button(0, 550, 'botonAtlas', emit2.action1, this, 'over', 'out', 'down');
 			botonRojo = this.add.button(200, 550, 'botonAtlas', emit2.action2, this, 'over', 'out', 'down');
 
+
+
+
+
 		}};
 emit2 = {
 	action1 :function(){

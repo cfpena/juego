@@ -1,5 +1,7 @@
 var velocidad=60;
 var prestamoDesarrollo=false;
+var NaveNueva = false;
+var EscenarioNave = 1;
 Ball.Preloader = function(game) {};
 Ball.Preloader.prototype = {
 	preload: function() {

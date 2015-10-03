@@ -5,25 +5,25 @@ Ball.Desarrollo.prototype = {
 
 		this.game.physics.setBoundsToWorld();
 
-	    this.physics.startSystem(Phaser.Physics.P2JS);
-	    this.physics.p2.restitution = 0.0;
+    this.physics.startSystem(Phaser.Physics.P2JS);
+    this.physics.p2.restitution = 0.0;
 
-	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
-	    starfield.fixedToCamera = true;
+    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
+    starfield.fixedToCamera = true;
 
 
-	    this.physics.p2.gravity.y = 300;
-	    //barra= this.add.sprite(0, 125, 'panel');
-	    grupo =this.add.group();
-	    this.world.bringToTop(grupo);
+    this.physics.p2.gravity.y = 300;
+    //barra= this.add.sprite(0, 125, 'panel');
+    grupo =this.add.group();
+    this.world.bringToTop(grupo);
 
-	    time=0;
-	    cajasPerdidas=0;
-	    verde=0;
-	    rojo=0;
-	    amarillo=0;
-	    azul=0;
-	    suma=0;
+    time=0;
+    cajasPerdidas=0;
+    verde=0;
+    rojo=0;
+    amarillo=0;
+    azul=0;
+    suma=0;
 
 		tiempo=this.add.text(470, 10, 'Tiempo: '+ time, { font: '16px Arial', fill: '#ffffff' })
 		recoleccion=this.add.text(650, 10, 'Recoleccion: '+ suma, { font: '16px Arial', fill: '#ffffff' })
@@ -52,10 +52,6 @@ Ball.Desarrollo.prototype = {
 		w.onDown.add(emit.actionOnClick2, this);
 		o.onDown.add(emit.actionOnClick3, this);
 		p.onDown.add(emit.actionOnClick4, this);
-
-
-
-
 
 	},
 
@@ -90,10 +86,10 @@ Ball.Desarrollo.prototype = {
 				caja=this.add.sprite(numero*100+((numero-1)*100), 0, 'robot'+numeroCaja);
 				caja.scale.set(0.3,0.3 );
 				caja.name=String(numero);
-			    this.physics.p2.enable(caja);
+		    this.physics.p2.enable(caja);
 
-			    grupo.add(caja);
-			    this.world.bringToTop(grupo);
+		    grupo.add(caja);
+		    this.world.bringToTop(grupo);
 
 
 
@@ -113,30 +109,8 @@ Ball.Desarrollo.prototype = {
 			}
 
 
-
-
-
-
-
-
-
-
-
-
-
 		},
 
-
-
-
-
-
-
-	render: function() {
-
-	    //this.debug.text('World bodies: ' + this.physics.p2.total, 32, 32);
-
-	}
 };
 emit = {
 
@@ -165,15 +139,16 @@ emit = {
 	}
 
 
-}, actionOnClick3: function() {
-if (grupo.getTop()!=null && grupo.getBottom().x>400 && grupo.getBottom().x<600 && grupo.getBottom().y>600-95-50){
+},
+actionOnClick3: function() {
+	if (grupo.getTop()!=null && grupo.getBottom().x>400 && grupo.getBottom().x<600 && grupo.getBottom().y>600-95-50){
 
-		cajita=grupo.getBottom();
-		amarillo++;
-		cajita.kill();
-		grupo.remove(cajita);
+			cajita=grupo.getBottom();
+			amarillo++;
+			cajita.kill();
+			grupo.remove(cajita);
 
-}},
+	}},
 	 actionOnClick4: function() {
 		 if (grupo.getTop()!=null && grupo.getBottom().x>600 && grupo.getBottom().x<800 && grupo.getBottom().y>600-95-50){
 
@@ -183,7 +158,4 @@ if (grupo.getTop()!=null && grupo.getBottom().x>400 && grupo.getBottom().x<600 &
 		 		grupo.remove(cajita);
 
 		 	}}
-
-
-
 	};

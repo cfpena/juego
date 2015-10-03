@@ -6,7 +6,8 @@ Ball.Carrera.prototype = {
 		lngPista = 1000;
 		numMeteoritos = 30;
 		vida = 100;
-		escenario = 1;
+		escenario = EscenarioNave;
+		console.log(escenario);
 		animaciones = 0;
 		funAnimacion1 = true;
 		funAnimacion2 = true;
@@ -14,8 +15,9 @@ Ball.Carrera.prototype = {
 		controles = true;
 		controlNaveV = true;
 		escena1 = true;
-		this.inicio();
-
+		velocidadNave = 200;
+		if (escenario==1)	this.inicio();
+		else this.juego();
 	},
 
 	//Escenario 1---------------------------------------------
@@ -33,28 +35,28 @@ Ball.Carrera.prototype = {
 
 		this.physics.p2.updateBoundsCollisionGroup();
 
-	    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
-	    starfield.fixedToCamera = true;
+    starfield = this.add.tileSprite(0, 0, 800, 600, 'fondo_carrera');
+    starfield.fixedToCamera = true;
 
-	    ship = this.add.sprite(this.game.world.centerX, lngPista-100, 'nave-1');
-	    ship.name = 'ship';
-	    ship.scale.setTo(0.25, 0.25);
-
-
-			asteroideG = this.game.add.sprite(0, 0, 'asteroide-5');
-			asteroideG.name = 'asteroideG';
-		  asteroideG.x = 0 ;
-	    asteroideG.y = 0 ;
-	    asteroideG.anchor.x = asteroideG.anchor.y = 0.5 ;
-	    asteroideG.scale.setTo(3, 3);
-	    this.physics.p2.enable(asteroideG, false);
-
-	    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
-	    this.physics.p2.enable(ship, false);
+    ship = this.add.sprite(this.game.world.centerX, lngPista-100, 'nave-1');
+    ship.name = 'ship';
+    ship.scale.setTo(0.25, 0.25);
 
 
-	    this.camera.follow(ship);
-	    cursors = this.input.keyboard.createCursorKeys();
+		asteroideG = this.game.add.sprite(0, 0, 'asteroide-5');
+		asteroideG.name = 'asteroideG';
+	  asteroideG.x = 0 ;
+    asteroideG.y = 0 ;
+    asteroideG.anchor.x = asteroideG.anchor.y = 0.5 ;
+    asteroideG.scale.setTo(3, 3);
+    this.physics.p2.enable(asteroideG, false);
+
+    //  Create our physics body - a 28px radius circle. Set the 'false' parameter below to 'true' to enable debugging
+    this.physics.p2.enable(ship, false);
+
+
+    this.camera.follow(ship);
+    cursors = this.input.keyboard.createCursorKeys();
 	},
 
 
@@ -153,11 +155,11 @@ Ball.Carrera.prototype = {
 		meteoritos = [];
 		numMeteoritos = 200;
 		maxvida=10;
-		vida = 10;
+		vida = 3;
 		meta = 50;
 		CambioNave = 9000;
-		bandera = true;
-		isNave2=false;
+		bandera = NaveNueva;
+		isNave2=NaveNueva;
 		var tween=null;
 		this.timer = 0;
 		this.totalTimer = 0;
@@ -185,7 +187,7 @@ Ball.Carrera.prototype = {
 
 		for (var i = 0; i < numMeteoritos; i++)
 		{
-				var ast = asteroides.create(this.world.randomX, this.world.randomY, 'Asteroides', this.rnd.pick(vegFrames));
+				var ast = asteroides.create(this.world.randomX, this.world.randomY-200, 'Asteroides', this.rnd.pick(vegFrames));
 				ast.body.setCollisionGroup(AsteroideCol);
 				ast.body.collides([AsteroideCol, shipCol]);
 				ast.body.collides(BulletCol, this.DisparoAsteroide, this);
@@ -202,6 +204,10 @@ Ball.Carrera.prototype = {
 		ship.body.setCollisionGroup(shipCol);
 		ship.body.collides(AsteroideCol, this.colision, this);
 
+		if (isNave2){
+			ship.loadTexture("nave-2");
+			velocidadNave += 100;
+		}
 
 			//Nueva que hay que poner
 			//Creación de disparos
@@ -274,11 +280,11 @@ Ball.Carrera.prototype = {
 	//Mucho de esta funcion hay que implementar
 	colision : function (ship, asteroide) {
 
-		if (vida<=0){
+		if (vida<=1){
 			this.boom(asteroide);
 			asteroide.sprite.kill();
 			ship.sprite.kill();
-			this.vidaText.setText("Perdiste");
+			this.game.state.start('GameOverCarrera');
 			//this.pause();
 		}else{
 			console.log(ship.frame);
@@ -290,14 +296,6 @@ Ball.Carrera.prototype = {
 	},
 
 	//Esta funcion hay que implementar en lo nuevo
-	CambioNave: function(){
-		ship.loadTexture("explosion")
-		ship.animations.add('right', [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 8, false);
-		ship.animations.play('right');
-		//this.startTimer();
-		ship.loadTexture('nave-2',0);
-		isNave2 = true;
-	},
 
 	update:function() {
 
@@ -315,62 +313,60 @@ Ball.Carrera.prototype = {
 	    if (escenario == 1) {
 	    	//console.log(ship.y);
 	    	if (parseInt(ship.y) == parseInt(lngPista/2) && funAnimacion2){
-				controles = false;
-				animacion = true;
-				animaciones = 1;
-			}
-			switch (animaciones){
-				case 0:
-					break;
-				case 1:
-					if(funAnimacion1) this.animacionV1();
-					if (parseInt(shipV.y) != parseInt(lngPista/2)){
-						shipV.body.moveUp(300);
+					controles = false;
+					animacion = true;
+					animaciones = 1;
+				}
+				switch (animaciones){
+					case 0:
+						break;
+					case 1:
+						if(funAnimacion1) this.animacionV1();
+						if (parseInt(shipV.y) != parseInt(lngPista/2)){
+							shipV.body.moveUp(300);
 
-					} else{
-						shipV.body.velocity.y = 0;
-						if(funAnimacion2) this.popupEvento();
-					}
-					break;
-				case 2:
-					if(shipV.angle >= -90){
-						shipV.body.rotateLeft(50);
-					}else{
-						shipV.body.rotateLeft(0);
-						balaV.x = shipV.x-100 ;
-	    				balaV.y = shipV.y ;
-						balaV.alpha = 1;
-						balaV.body.moveLeft(200);
-						//balaV.body.velocity.y = 50;
-						//this.game.physics.arcade.collide(balaV, asteroideG, this.collisionHandler, null, this);
+						} else{
+							shipV.body.velocity.y = 0;
+							if(funAnimacion2) this.popupEvento();
+						}
+						break;
+					case 2:
+						if(shipV.angle >= -90){
+							shipV.body.rotateLeft(50);
+						}else{
+							shipV.body.rotateLeft(0);
+							balaV.x = shipV.x-100 ;
+		    				balaV.y = shipV.y ;
+							balaV.alpha = 1;
+							balaV.body.moveLeft(200);
+							//balaV.body.velocity.y = 50;
+							//this.game.physics.arcade.collide(balaV, asteroideG, this.collisionHandler, null, this);
 
 
-					}
+						}
 
 					//escenario = 2;
 					//this.juego();
-					break;
-			}
+						break;
+				}
 
 	    }
 
 	    if(escenario == 2){
-			for (var i=0; i<numMeteoritos; i++) {
-				asteroides.getAt(i).x += Math.random()*2;
-				asteroides.getAt(i).y += Math.random()*2;
-			}
-
-			//Esto se va haciendo recien
-			if (isNave2){
-				if (disparar.isDown){
-					this.DispararYa();
+				for (var i=0; i<numMeteoritos; i++) {
+					asteroides.getAt(i).x += Math.random()*2;
+					asteroides.getAt(i).y += Math.random()*2;
 				}
-			}
 
-			if(ship.y<CambioNave && bandera){
-				this.CambioNave();
+				//Esto se va haciendo recien
+				if (isNave2){
+					if (disparar.isDown){
+						this.DispararYa();
+					}
+				}
+
+
 			}
-		}
 
 		if (animaciones == 1){
 			if (parseInt(shipV.y) < 100) {
@@ -385,9 +381,8 @@ Ball.Carrera.prototype = {
 
 		if (ship.y<50){
 			if(escenario == 2){
-				this.vidaText.setText("Ganaste");
+					this.game.state.start('WinCarrera');
 			}
-
 		}
 
 		if (animacion) {
@@ -397,17 +392,17 @@ Ball.Carrera.prototype = {
 		if(controles){
 		    if (cursors.left.isDown)
 		    {
-		        ship.body.moveLeft(200);
+		        ship.body.moveLeft(velocidadNave);
 
 		    }
 		    else if (cursors.right.isDown)
 		    {
-		        ship.body.moveRight(200);
+		        ship.body.moveRight(velocidadNave);
 		    }
 
 		    if (cursors.up.isDown)
 		    {
-		      ship.body.moveUp(200);
+		      ship.body.moveUp(velocidadNave);
 					if (ship.y <= lngPista - (Ball._HEIGHT/2) && ship.y >= Ball._HEIGHT/2 && escenario != 1){
 						this.vidaText.y=ship.y-270;
 						this.totalTimeText.y=ship.y-270;
@@ -415,7 +410,7 @@ Ball.Carrera.prototype = {
 		    }
 		    else if (cursors.down.isDown)
 		    {
-		      ship.body.moveDown(200);
+		      ship.body.moveDown(velocidadNave);
 					if (ship.y <= lngPista - (Ball._HEIGHT/2) && ship.y >= Ball._HEIGHT/2 && escenario != 1){
 						this.vidaText.y=ship.y-270;
 						this.totalTimeText.y=ship.y-270;
