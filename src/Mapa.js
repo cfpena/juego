@@ -1,4 +1,4 @@
-Ball.Mapa = function(game) {};	
+Ball.Mapa = function(game) {};
 var counter = 0 ;
 		var step = Math.PI * 2 / 360 ;
 
@@ -19,7 +19,7 @@ Ball.Mapa.prototype = {
 		//var counter = 0 ;
 		//var step = Math.PI * 2 / 360 ;
 	     this.game.add.tileSprite(0, 0, 800, 600, 'back');
-
+	     
 	     buttonCFN = this.game.add.button(350,210,'planeta-cfn',undefined,this,2,1,0);
 	     buttonCFN.name = 'planetaCFN';
 	     buttonCFN.scale.setTo(0.25, 0.25);
@@ -31,18 +31,19 @@ Ball.Mapa.prototype = {
 	     buttonCarrera = this.game.add.button(50,210,'planeta-carrera',this.irCarrera,this,2,1,0);
 	     buttonCarrera.name = 'planetaCarrera';
 	     buttonCarrera.scale.setTo(0.2, 0.2);
-	     
+
 
 	     buttonIndustria = this.game.add.button(650,210,'planeta-industria',this.irDesarrollo,this,2,1,0);
 	     buttonIndustria.name = 'planetaCarrera';
 	     buttonIndustria.scale.setTo(0.25, 0.25);
+
 
 	     //planetas alternos
 	     button1 = this.game.add.button(500,410,'planeta-3',undefined,this,2,1,0);
 	     button1.name = 'planeta1';
 	     button1.scale.setTo(0.27, 0.27);
 
-	     button2= this.game.add.button(170,410,'planeta-4',undefined,this,2,1,0);
+	     button2= this.game.add.button(110,390,'planeta-4',undefined,this,2,1,0);
 	     button2.name = 'planeta2';
 	     button2.scale.setTo(0.27, 0.27);
 
@@ -50,7 +51,7 @@ Ball.Mapa.prototype = {
 	     button3.name = 'planeta3';
 	     button3.scale.setTo(0.20, 0.20);
 
-	     button4 = this.game.add.button(170,110,'planeta-6',undefined,this,2,1,0);
+	     button4 = this.game.add.button(230,110,'planeta-6',undefined,this,2,1,0);
 	     button4.name = 'planeta4';
 	     button4.scale.setTo(0.20, 0.20);
 
@@ -64,7 +65,9 @@ Ball.Mapa.prototype = {
 	     titleCarreras = this.game.add.bitmapText(45,320,'future-earth','phobos');
 	     titleCarreras.scale.setTo(0.30,0.30);
 	     carrera.add(titleCarreras);
-	     
+
+
+
 	     //planeta de desarrollo
 	     glow2 =this.make.sprite(600,200,'glow-1');
 	     glow2.scale.setTo(0.4,0.4)
@@ -116,11 +119,12 @@ Ball.Mapa.prototype = {
 	     ayuda.add(dialogoAnim);
 	     
 },
+
 	irCarrera: function() {
-	 	this.game.state.start('Carrera');
+	 	this.game.state.start('ComoJugarCarrera');
 	},
 	irDesarrollo: function() {
-		this.game.state.start('Desarrollo');
+		this.game.state.start('ComoJugarDesarrollo');
 	},
 	initLevels: function() {
 
@@ -143,11 +147,11 @@ Ball.Mapa.prototype = {
 	
 	    buttonCFN.y = 210 + tStep * 10 ;
 	    buttonCFN.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
-	    
+
 	    carrera.y = tStep * 20 ;
 	    carrera.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
 	    glow.alpha = 0.7 - Math.abs(tStep) * .3;
-	    
+
 
 	    industria.y = tStep * 20 ;
 	    industria.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
@@ -155,16 +159,16 @@ Ball.Mapa.prototype = {
 
 	    button1.y = 410 + tStep * 20 ;
 	    button1.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
-	    
+
 	    button2.y = 410 + tStep * 20 ;
 	    button2.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
 
 	    button3.y = 110 - tStep * 20 ;
 	    button3.rotation += Phaser.Math.degToRad( -0.04 * tStep ) ;
-	    
+
 	    button4.y = 110 - tStep * 20 ;
 	    button4.rotation += Phaser.Math.degToRad( 0.04 * tStep ) ;
-	    
+
 	    counter += step ;
 
     },
