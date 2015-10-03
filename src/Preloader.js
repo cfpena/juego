@@ -29,6 +29,8 @@ Ball.Preloader.prototype = {
 		this.load.image('border-vertical', 'img/border-vertical.png');
 		this.load.image('fondo2', 'img/fondo2.jpg');
 		this.load.image('fondo_carrera', 'img/fondo_carrera.jpg');
+		this.load.image('screen-gameoverc', 'resources/images/cx.png');
+
 		//this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
 
 		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
@@ -41,6 +43,10 @@ Ball.Preloader.prototype = {
 		this.load.image('nave-2', 'resources/images/nave-camisa-D.png');
 		this.load.image('nave-3', 'resources/images/nave_03.png');
 		this.load.image('asteroide-5', 'resources/images/asteroide_05.png');
+		this.load.image('asteroide-1', 'resources/images/asteroide_01.png');
+		this.load.image('asteroide-2', 'resources/images/asteroide_02.png');
+		this.load.image('asteroide-3', 'resources/images/asteroide_03.png');
+		this.load.image('asteroide-4', 'resources/images/asteroide_04.png');
 		this.load.image('balaV', 'resources/images/balaV.png');
 		//	this.load.atlas('botonAtlas', 'img/button_texture_atlas.png', 'src/button_texture_atlas.json');
 
@@ -60,6 +66,14 @@ Ball.Preloader.prototype = {
 		this.load.image('robot1', 'resources/images/robot1.png', 166, 253);
 		this.load.image('robot2', 'resources/images/robot2.png', 167, 254);
 		this.load.image('robot3', 'resources/images/robot3.png', 166, 248);
+
+		this.load.image('prota', 'resources/images/prota.png');
+		this.load.image('anta', 'resources/images/antagonista.png');
+		this.load.image('asteroide1', 'img/asteroide1.png');
+		this.load.image('asteroide2', 'img/asteroide2.png');
+		this.load.image('asteroide3', 'img/asteroide3.png');
+		this.load.image('asteroide4', 'img/asteroide4.png');
+
 
 		//ilustraciones definitivas
 		this.load.image('planeta-cfn','resources/images/planeta_08.png');

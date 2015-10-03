@@ -3,6 +3,7 @@ Ball.GameOverCarrera.prototype = {
 
 		create: function() {
 
+			this.add.tileSprite(0, 0,800,600, 'screen-gameoverc');
 			if (!NaveNueva){
 				botonVerde = this.add.button(200, 400, 'botonAtlas', this.irCarreraNueva, this, 'over', 'out', 'down');
 				this.add.text(432, 407, 'NaveNueva', { font: '20px Arial', fill: '#ffffff' })
