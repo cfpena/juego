@@ -39,7 +39,7 @@ Ball.Desarrollo.prototype = {
 		verdeText=this.add.text(140, 600-70, verde, { font: '42px Arial', fill: '#000000' })
 		rojoText=this.add.text(310, 600-70,  rojo, { font: '42px Arial', fill: '#000000' })
 		amarilloText=this.add.text(470, 600-70, amarillo, { font: '42px Arial', fill: '#000000' })
-		azulText=this.add.text(650, 600-70, azul, { font: '42px Arial', fill: '#000000' })
+		azulText=this.add.text(630, 600-70, azul, { font: '42px Arial', fill: '#000000' })
 
 
 		q = this.input.keyboard.addKey(Phaser.Keyboard.Q);
@@ -89,7 +89,7 @@ Ball.Desarrollo.prototype = {
 				if(numero==1)pix=140;
 				else if (numero==2) pix=310;
 				else if (numero==3) pix=470;
-				else if (numero==4) pix=650;
+				else if (numero==4) pix=630;
 
 				caja=this.add.sprite(pix, 0, 'robot'+numeroCaja);
 				caja.scale.set(0.3,0.3 );

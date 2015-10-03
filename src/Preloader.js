@@ -33,6 +33,7 @@ Ball.Preloader.prototype = {
 
 		this.load.image('fondo_carrera', 'resources/images/ESCENARIO 2.png');
 		this.load.image('back','resources/images/background.png');
+		this.load.image('menu','img/menu.png');
 		//this.game.load.spritesheet('planeta', 'img/planeta.png', 193, 71);
 		this.game.load.spritesheet('planeta', 'img/planeta.png');
 		this.game.load.image('planetaSprite', 'img/planeta.png');
