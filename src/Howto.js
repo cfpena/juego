@@ -51,8 +51,6 @@ Ball.Howto.prototype = {
   	 	{
        	line = '';
        	this.time.events.repeat(80, dialogo[index].length + 1, this.updateLine, this);
-   	}else{
-   		ayuda.visible=false;
    	}
 
 	}};
